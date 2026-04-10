@@ -1,0 +1,540 @@
+{
+  "version": "2.1.0",
+  "last_updated": "2026-04-09",
+  "assistant": {
+    "name": "JazzyCat",
+    "display_name": "JazzyCat",
+    "role": "Balcony Music Club website guide",
+    "tone": [
+      "playful",
+      "helpful",
+      "clear",
+      "Mardi Gras-flavored",
+      "brief first, then detailed if asked"
+    ],
+    "identity_lines": [
+      "Hey, I'm JazzyCat \u2014 Balcony Music Club's pixel-house guide.",
+      "I can help with venue basics, recurring specials, the current public schedule snapshot, loaded artist notes, and the best contact route for private events or Paint and Sip.",
+      "I only answer from the local JSON loaded into this page, so if something has not been entered yet, I say so instead of making it up."
+    ],
+    "rules": [
+      "Use only facts loaded from the JSON files on this page unless a separate live search route is connected.",
+      "Do not invent prices, times, dates, policies, or artist details.",
+      "If a genre or artist link is not loaded, say that clearly.",
+      "Prefer direct answers first and then give the best contact route when relevant.",
+      "Treat the schedule snapshot as a public-calendar snapshot, not a permanent promise.",
+      "Prefer venue-loaded facts, recurring specials, and current schedule answers before broader FAQ matches."
+    ]
+  },
+  "site": {
+    "name": "Balcony Music Club",
+    "short_name": "BMC",
+    "city": "New Orleans",
+    "state": "Louisiana",
+    "address": "1331 Decatur St., New Orleans, LA 70116",
+    "website": "https://balconymusicclubnola.com/",
+    "summary": "Balcony Music Club is a French Quarter venue in New Orleans that showcases a wide variety of local music and recurring event programming.",
+    "venue_areas": [
+      "courtyard",
+      "main stage",
+      "balcony bar"
+    ],
+    "public_source_notes": [
+      "WWOZ lists BMC at 1331 Decatur St. in the French Quarter and describes it as a venue showcasing a wide variety of local music.",
+      "NewOrleans.com describes BMC as a popular music venue showcasing up-and-coming musical talent, with blues, jazz, or funk commonly associated with the venue's atmosphere."
+    ],
+    "core_summary": "Welcome to BMC \u2014 The Center of the Universe.",
+    "house_atmosphere": "Welcome to BMC - The Center of the Universe.",
+    "vibe_notes": [
+      "French Quarter live-music energy",
+      "Mardi Gras color and marquee flair",
+      "Courtyard, main stage, and balcony bar flow",
+      "Local music focus with recurring event programming"
+    ],
+    "venue_areas_detail": [
+      {
+        "name": "Courtyard",
+        "description": "The courtyard is one of the highlighted venue areas and part of the private-events footprint loaded into this page."
+      },
+      {
+        "name": "Main Stage",
+        "description": "The main stage is one of the featured performance and event areas referenced in the loaded venue information."
+      },
+      {
+        "name": "Balcony Bar",
+        "description": "The balcony bar is one of the highlighted bookable venue areas included in the current JazzyCat knowledge file."
+      }
+    ],
+    "badge_line": "French Quarter \u2022 Local Music \u2022 Marquee Glow",
+    "poster_caption": "A pixel-night BMC dream in Mardi Gras colors."
+  },
+  "contacts": {
+    "venue_phone_public": {
+      "label": "Venue phone listed on WWOZ",
+      "phone": "(504) 301-5912",
+      "source": "WWOZ venue page"
+    },
+    "general_events": {
+      "email": "BMC@marullomgmt.com",
+      "phone": "504-428-5494",
+      "mailto": "mailto:BMC@marullomgmt.com",
+      "tel": "tel:+15044285494",
+      "use_for": [
+        "private events",
+        "event inquiries",
+        "venue booking questions"
+      ],
+      "source": "User-provided club contact"
+    },
+    "paint_and_sip": {
+      "phone": "504-281-8736",
+      "tel": "tel:+15042818736",
+      "use_for": [
+        "Paint and Sip registration",
+        "Paint and Sip questions"
+      ],
+      "source": "User-provided Paint and Sip registration contact"
+    }
+  },
+  "recurring_programming": {
+    "live_music": {
+      "title": "Live Music",
+      "days": [
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "schedule_text": "Live music every Wednesday through Sunday, open to close.",
+      "short_answer": "Live music runs every Wednesday through Sunday, open to close.",
+      "source": "User-provided recurring programming detail"
+    },
+    "bloody_mary_brunch": {
+      "title": "Build Your Own Bloody Mary Sunday Brunch",
+      "day": "Sunday",
+      "time": "Noon - 4:00 PM",
+      "price": "$15",
+      "refill_price": "$10",
+      "availability_note": "Featured item only available during this Sunday brunch window.",
+      "description": "Build your own Bloody Mary with all the breakfast necessities.",
+      "short_answer": "Build Your Own Bloody Mary Sunday Brunch is every Sunday from noon to 4:00 PM. It is $15, and refills are $10.",
+      "source": "User-provided recurring programming detail"
+    },
+    "paint_and_sip": {
+      "title": "Paint and Sip",
+      "registration_phone": "504-281-8736",
+      "short_answer": "Paint and Sip registration is handled at 504-281-8736.",
+      "source": "User-provided recurring programming detail"
+    },
+    "private_events": {
+      "title": "Private Events",
+      "spaces": [
+        "courtyard",
+        "main stage",
+        "balcony bar"
+      ],
+      "ideal_for": [
+        "weddings",
+        "graduations",
+        "Mardi Gras balls",
+        "private celebrations"
+      ],
+      "email": "BMC@marullomgmt.com",
+      "phone": "504-428-5494",
+      "short_answer": "Private events can be booked for the courtyard, main stage, or balcony bar. Contact BMC@marullomgmt.com or 504-428-5494.",
+      "source": "User-provided recurring programming detail"
+    },
+    "happy_hour": {
+      "title": "Thursday Happy Hour",
+      "day": "Thursday",
+      "time": "4:30 PM - 5:30 PM",
+      "description": "Thursday happy hour with nice cocktail lounge music.",
+      "short_answer": "Thursday happy hour runs from 4:30 PM to 5:30 PM with nice cocktail lounge music.",
+      "source": "User-provided recurring programming detail"
+    }
+  },
+  "faq": [
+    {
+      "id": "faq_what_is_bmc",
+      "question": "What is Balcony Music Club?",
+      "keywords": [
+        "what is balcony music club",
+        "what is bmc",
+        "about the club"
+      ],
+      "answer": "Balcony Music Club is a French Quarter venue in New Orleans that showcases a wide variety of local music.",
+      "source": "WWOZ venue page"
+    },
+    {
+      "id": "faq_where_is_bmc",
+      "question": "Where is Balcony Music Club located?",
+      "keywords": [
+        "where is bmc",
+        "where is balcony music club",
+        "address",
+        "location",
+        "decatur"
+      ],
+      "answer": "Balcony Music Club is located at 1331 Decatur St., New Orleans, LA 70116.",
+      "source": "WWOZ venue page"
+    },
+    {
+      "id": "faq_neighborhood",
+      "question": "What neighborhood is Balcony Music Club in?",
+      "keywords": [
+        "what neighborhood",
+        "french quarter",
+        "neighborhood"
+      ],
+      "answer": "Balcony Music Club is in the French Quarter.",
+      "source": "WWOZ venue page"
+    },
+    {
+      "id": "faq_venue_phone",
+      "question": "What is the public venue phone number?",
+      "keywords": [
+        "venue phone",
+        "public phone",
+        "club phone",
+        "301-5912"
+      ],
+      "answer": "The public venue phone listed on WWOZ is (504) 301-5912.",
+      "source": "WWOZ venue page"
+    },
+    {
+      "id": "faq_live_music_when",
+      "question": "When is live music?",
+      "keywords": [
+        "when is live music",
+        "music schedule",
+        "live music days",
+        "open to close"
+      ],
+      "answer": "Live music runs every Wednesday through Sunday, open to close.",
+      "source": "User-provided recurring programming detail"
+    },
+    {
+      "id": "faq_brunch_when",
+      "question": "When is Bloody Mary brunch?",
+      "keywords": [
+        "bloody mary brunch",
+        "brunch hours",
+        "when is brunch",
+        "sunday brunch"
+      ],
+      "answer": "Build Your Own Bloody Mary Sunday Brunch runs every Sunday from noon to 4:00 PM.",
+      "source": "User-provided recurring programming detail"
+    },
+    {
+      "id": "faq_brunch_price",
+      "question": "How much is Bloody Mary brunch?",
+      "keywords": [
+        "bloody mary price",
+        "brunch price",
+        "how much is brunch",
+        "$15",
+        "$10",
+        "refill"
+      ],
+      "answer": "The brunch special is $15, and the refill price is $10.",
+      "source": "User-provided recurring programming detail"
+    },
+    {
+      "id": "faq_brunch_featured",
+      "question": "Is Bloody Mary brunch only available on Sundays?",
+      "keywords": [
+        "featured item",
+        "only available sunday",
+        "sunday only",
+        "only during brunch"
+      ],
+      "answer": "Yes. It is a featured Sunday item and is only available during the Sunday brunch window.",
+      "source": "User-provided recurring programming detail"
+    },
+    {
+      "id": "faq_brunch_description",
+      "question": "What is included in Bloody Mary brunch?",
+      "keywords": [
+        "what is included",
+        "breakfast necessities",
+        "build your own"
+      ],
+      "answer": "The brunch feature is described as Build Your Own Bloody Mary with all the breakfast necessities.",
+      "source": "User-provided recurring programming detail"
+    },
+    {
+      "id": "faq_paint_and_sip_register",
+      "question": "How do I register for Paint and Sip?",
+      "keywords": [
+        "paint and sip",
+        "paint & sip",
+        "register",
+        "registration",
+        "sign up"
+      ],
+      "answer": "Call 504-281-8736 for Paint and Sip registration.",
+      "source": "User-provided recurring programming detail"
+    },
+    {
+      "id": "faq_private_events_book",
+      "question": "How do I book a private event?",
+      "keywords": [
+        "book private event",
+        "private events",
+        "reservation",
+        "reserve the club"
+      ],
+      "answer": "For private events, email BMC@marullomgmt.com or call 504-428-5494.",
+      "source": "User-provided private events contact"
+    },
+    {
+      "id": "faq_private_event_spaces",
+      "question": "What spaces can be booked for private events?",
+      "keywords": [
+        "what spaces",
+        "courtyard",
+        "main stage",
+        "balcony bar",
+        "venue spaces"
+      ],
+      "answer": "The private event spaces highlighted for booking are the courtyard, main stage, and balcony bar.",
+      "source": "User-provided private events detail"
+    },
+    {
+      "id": "faq_private_event_types",
+      "question": "What kinds of private events fit the venue?",
+      "keywords": [
+        "what kinds of events",
+        "weddings",
+        "graduations",
+        "mardi gras balls",
+        "celebrations"
+      ],
+      "answer": "The private events information highlights weddings, graduations, Mardi Gras balls, and private celebrations.",
+      "source": "User-provided private events detail"
+    },
+    {
+      "id": "faq_venue_style",
+      "question": "What kind of music does the venue usually have?",
+      "keywords": [
+        "what kind of music does the venue have",
+        "venue style",
+        "music at bmc"
+      ],
+      "answer": "Public venue listings describe Balcony Music Club as showcasing a wide variety of local music, and NewOrleans.com associates the venue atmosphere with blues, jazz, and funk.",
+      "source": "WWOZ venue page and NewOrleans.com listing"
+    },
+    {
+      "id": "faq_upcoming_schedule_source",
+      "question": "Where does the current schedule come from?",
+      "keywords": [
+        "schedule source",
+        "where does the schedule come from",
+        "public calendar"
+      ],
+      "answer": "The current loaded schedule snapshot on this JazzyCat page comes from the public WWOZ BMC venue calendar snapshot dated April 8, 2026.",
+      "source": "WWOZ venue page"
+    },
+    {
+      "id": "faq_artist_genres_limit",
+      "question": "Can JazzyCat always tell me a band's genre?",
+      "keywords": [
+        "genre",
+        "what kind of music does a band play",
+        "band style",
+        "artist style"
+      ],
+      "answer": "Only when genre data has been loaded for that artist. This dedicated page is ready for artist genres, but not every artist has a verified genre profile loaded yet.",
+      "source": "Site behavior rule"
+    },
+    {
+      "id": "faq_artist_links_limit",
+      "question": "Can JazzyCat always give me artist links?",
+      "keywords": [
+        "artist links",
+        "band website",
+        "instagram",
+        "youtube",
+        "spotify"
+      ],
+      "answer": "Only when those links have been loaded into the artist data. If no artist links are loaded yet, JazzyCat should say that clearly rather than invent one.",
+      "source": "Site behavior rule"
+    },
+    {
+      "id": "faq_web_questions_limit",
+      "question": "Can JazzyCat answer wider internet questions?",
+      "keywords": [
+        "wider internet",
+        "web questions",
+        "outside the site",
+        "live internet"
+      ],
+      "answer": "Not from local JSON alone. Wider internet answers need a separate live search backend.",
+      "source": "Site behavior rule"
+    },
+    {
+      "id": "faq_official_website",
+      "question": "What is the official website?",
+      "keywords": [
+        "official website",
+        "website",
+        "site url",
+        "balconymusicclubnola"
+      ],
+      "answer": "The website listed on the public WWOZ venue page is https://balconymusicclubnola.com/.",
+      "source": "WWOZ venue page"
+    },
+    {
+      "id": "faq_city",
+      "question": "What city is the club in?",
+      "keywords": [
+        "what city",
+        "new orleans",
+        "city"
+      ],
+      "answer": "Balcony Music Club is in New Orleans, Louisiana.",
+      "source": "WWOZ venue page"
+    },
+    {
+      "question": "When is Thursday happy hour?",
+      "keywords": [
+        "happy hour",
+        "thursday happy hour",
+        "4:30",
+        "5:30",
+        "cocktail lounge music"
+      ],
+      "answer": "Thursday happy hour runs from 4:30 PM to 5:30 PM with nice cocktail lounge music.",
+      "source": "User-provided recurring programming detail"
+    },
+    {
+      "question": "What spaces are part of the venue?",
+      "keywords": [
+        "spaces",
+        "rooms",
+        "courtyard",
+        "main stage",
+        "balcony bar",
+        "venue areas"
+      ],
+      "answer": "The venue areas loaded here are the courtyard, main stage, and balcony bar.",
+      "source": "User-provided venue areas detail"
+    },
+    {
+      "question": "What is the house atmosphere line?",
+      "keywords": [
+        "house atmosphere",
+        "center of the universe",
+        "welcome to bmc",
+        "vibe"
+      ],
+      "answer": "The loaded house atmosphere line is: Welcome to BMC - The Center of the Universe.",
+      "source": "User-provided page copy"
+    },
+    {
+      "question": "Can JazzyCat answer tonight and day-by-day schedule questions?",
+      "keywords": [
+        "tonight",
+        "today",
+        "schedule by day",
+        "day by day",
+        "who is playing"
+      ],
+      "answer": "Yes, when the current public schedule snapshot is loaded into the page. JazzyCat can answer tonight, today, named day, and YYYY-MM-DD schedule questions from that local snapshot.",
+      "source": "Site behavior rule"
+    },
+    {
+      "question": "What can JazzyCat help me with on this page?",
+      "keywords": [
+        "what can jazzycat do",
+        "help me with",
+        "what do you know",
+        "what can you answer"
+      ],
+      "answer": "JazzyCat can help with venue basics, recurring specials, Paint and Sip, private events, loaded artist metadata, and the current public schedule snapshot on this page.",
+      "source": "Site behavior rule"
+    },
+    {
+      "question": "What is the private events email?",
+      "keywords": [
+        "private events email",
+        "event email",
+        "book email",
+        "marullomgmt"
+      ],
+      "answer": "For private events, email BMC@marullomgmt.com.",
+      "source": "User-provided club contact"
+    },
+    {
+      "question": "What is the private events phone number?",
+      "keywords": [
+        "private events phone",
+        "event phone",
+        "booking phone",
+        "428-5494"
+      ],
+      "answer": "For private events, call 504-428-5494.",
+      "source": "User-provided club contact"
+    },
+    {
+      "question": "What is the Paint and Sip phone number?",
+      "keywords": [
+        "paint and sip phone",
+        "paint phone",
+        "sip phone",
+        "281-8736"
+      ],
+      "answer": "Paint and Sip registration is handled at 504-281-8736.",
+      "source": "User-provided Paint and Sip registration contact"
+    }
+  ],
+  "quick_questions": [
+    "What is happening tonight?",
+    "When is Thursday happy hour?",
+    "When is Bloody Mary brunch?",
+    "How much is Bloody Mary brunch?",
+    "How do I register for Paint and Sip?",
+    "How do I book a private event?",
+    "What spaces are part of the venue?",
+    "What kind of music does the venue usually have?",
+    "What is the official website?",
+    "Where is Balcony Music Club located?"
+  ],
+  "routing": {
+    "local_topics": [
+      "venue basics",
+      "live music schedule basics",
+      "Bloody Mary brunch",
+      "Paint and Sip",
+      "private events",
+      "address",
+      "contact details",
+      "current loaded schedule snapshot"
+    ],
+    "needs_live_backend": [
+      "wider internet questions",
+      "weather",
+      "parking availability",
+      "real-time directions",
+      "real-time artist updates outside loaded data",
+      "web search",
+      "haunted history unless added to JSON"
+    ],
+    "unknown_fallback": "I do not have that loaded in this repo yet. Ask me about the current schedule snapshot, Thursday happy hour, Sunday Bloody Mary brunch, Paint and Sip, private events, venue basics, or a loaded artist."
+  },
+  "ui": {
+    "page_title": "Ask JazzyCat",
+    "panel_title": "JazzyCat Live Desk",
+    "status_label": "Local knowledge loaded",
+    "input_placeholder": "Ask JazzyCat about BMC\u2026",
+    "send_label": "Ask JazzyCat",
+    "welcome_prompt": "Ask about tonight, brunch, happy hour, private events, Paint and Sip, or a loaded artist.",
+    "marquee_text": "ASK JAZZYCAT \u2022 BALCONY MUSIC CLUB \u2022 WEDNESDAY\u2013SUNDAY LIVE MUSIC \u2022 THURSDAY HAPPY HOUR \u2022 SUNDAY BLOODY MARY BRUNCH \u2022 PRIVATE EVENTS \u2022"
+  },
+  "sources": [
+    "Local JazzyCat venue knowledge JSON",
+    "Current public schedule snapshot loaded into this repo",
+    "Local artist metadata JSON"
+  ]
+}
