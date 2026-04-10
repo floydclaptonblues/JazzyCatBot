@@ -6,11 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Balcony Music Club • JazzyCat</title>
   <style>
-    html,body{margin:0;padding:0;background:#0b0613;min-height:100%}
-    body{font-family:Geneva,Verdana,Arial,sans-serif;overflow-x:hidden}
-
+    html,body{margin:0;padding:0;min-height:100%;background:#0b0613}
+    body{font-family:Geneva,Verdana,Arial,sans-serif;overflow-x:hidden;color:#fff6e8}
     #bmc90-root{
-      --bg:#12061b;
       --panel:#211037;
       --panel2:#2f164b;
       --ink:#fff6e8;
@@ -19,240 +17,187 @@
       --pink:#ff4ab0;
       --cyan:#5ee6ff;
       --green:#7df07a;
-      --line:#000;
       --ui-font: Chicago, Charcoal, Geneva, "Arial Rounded MT Bold", Verdana, sans-serif;
       --body-font: Geneva, Verdana, Arial, sans-serif;
       position:relative;
-      display:block;
-      width:100%;
       min-height:100vh;
-      padding:16px 0 34px;
+      padding:16px 0 36px;
       overflow:hidden;
-      color:var(--ink);
-      font-family:var(--body-font);
       background:#0b0613;
       border-top:2px solid #000;
       border-bottom:2px solid #000;
       box-shadow:0 12px 0 rgba(8,4,18,.75);
       isolation:isolate;
     }
-    #bmc90-root *{box-sizing:border-box}
-
+    *{box-sizing:border-box}
+    .bg-rotator,.bg-rotator::before,.bg-rotator::after{
+      position:absolute;inset:0;z-index:0;pointer-events:none
+    }
+    .bg-rotator::before,.bg-rotator::after{content:"";background-position:center top;background-repeat:repeat;background-size:420px auto;mix-blend-mode:screen;opacity:.27}
+    .bg-rotator::before{background-image:url("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExamo0dGM5cmY2Z3FiZmd0dDRjdWRzZHdrdnZuc2tha2pqdXdyYzY5eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KJEm3H7qTSz7Qr5wrD/giphy.gif");animation:bgSwapA 16s linear infinite}
+    .bg-rotator::after{background-image:url("./assets/new_orleans_8bit_bar_music.gif");animation:bgSwapB 16s linear infinite}
+    @keyframes bgSwapA{0%,44%{opacity:.26}50%,94%{opacity:0}100%{opacity:.26}}
+    @keyframes bgSwapB{0%,44%{opacity:0}50%,94%{opacity:.24}100%{opacity:0}}
     #bmc90-root::before{
-      content:"";
-      position:absolute; inset:0; z-index:0;
+      content:"";position:absolute;inset:0;z-index:0;
       background:
-        linear-gradient(rgba(8,4,14,.80), rgba(8,4,14,.72)),
-        url("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExamo0dGM5cmY2Z3FiZmd0dDRjdWRzZHdrdnZuc2tha2pqdXdyYzY5eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KJEm3H7qTSz7Qr5wrD/giphy.gif");
-      background-repeat:repeat;
-      background-size:420px auto;
-      background-position:center top;
-      filter:saturate(.95) contrast(1.05);
+        linear-gradient(rgba(8,4,14,.88), rgba(8,4,14,.73)),
+        radial-gradient(circle at 12% 15%, rgba(255,74,176,.17), transparent 22%),
+        radial-gradient(circle at 86% 14%, rgba(94,230,255,.18), transparent 18%),
+        radial-gradient(circle at 52% 100%, rgba(255,216,87,.10), transparent 28%);
     }
     #bmc90-root::after{
-      content:"";
-      position:absolute; inset:0; z-index:0; pointer-events:none;
-      background:
-        radial-gradient(circle at 15% 12%, rgba(255,74,176,.16), transparent 24%),
-        radial-gradient(circle at 88% 10%, rgba(94,230,255,.16), transparent 22%),
-        radial-gradient(circle at 50% 100%, rgba(255,216,87,.12), transparent 30%),
-        linear-gradient(rgba(255,255,255,.04), rgba(255,255,255,0) 2px);
-      background-size:auto,auto,auto,100% 4px;
-      opacity:.62;
+      content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+      background:linear-gradient(rgba(255,255,255,.04), rgba(255,255,255,0) 2px);
+      background-size:100% 4px;opacity:.48
     }
+    .bg-art{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:.24}
+    .bg-art img{position:absolute;display:block;object-fit:cover;filter:saturate(1.08) contrast(1.03) drop-shadow(0 10px 30px rgba(0,0,0,.35))}
+    .bg-a{right:-2%;top:4%;width:min(46vw,560px);aspect-ratio:16/9;border:2px solid rgba(255,216,87,.30)}
+    .bg-b{left:-3%;bottom:8%;width:min(40vw,470px);aspect-ratio:4/5;border:2px solid rgba(94,230,255,.24)}
 
-    .bg-art{position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; opacity:.26}
-    .bg-art img{position:absolute; display:block; object-fit:cover; filter:saturate(1.08) contrast(1.03) drop-shadow(0 10px 30px rgba(0,0,0,.35))}
-    .bg-a{right:-2%; top:3%; width:min(46vw,560px); aspect-ratio:16/9; border:2px solid rgba(255,216,87,.28)}
-    .bg-b{left:-3%; bottom:8%; width:min(40vw,470px); aspect-ratio:4/5; border:2px solid rgba(94,230,255,.22)}
+    .bmc90-wrap{position:relative;z-index:1;width:min(1220px, calc(100vw - 16px));margin:0 auto}
+    .bmc90-topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:6px 0 12px}
+    .bmc90-brand,.bmc90-chip,.bmc90-badge,.bmc90-ribbon,.bmc90-window-title,.bmc90-btn,.bmc90-section-tab,.bmc90-marquee,.bmc90-status,.marquee-led,.bulb-strip{font-family:var(--ui-font);text-transform:uppercase;letter-spacing:.08em;font-weight:900}
+    .bmc90-brand{color:var(--gold);font-size:12px;text-shadow:1px 1px 0 #000}
+    .bmc90-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .bmc90-chip,.bmc90-panel,.bmc90-card,.bmc90-contact-strip,.bmc90-mini,.bmc90-facts,.bmc90-schedule,.bmc90-menu,.bmc90-menu-grid,.cocktail-card,.marquee-shell{border:2px solid #000;box-shadow:inset 2px 2px 0 rgba(255,255,255,.22), inset -2px -2px 0 rgba(0,0,0,.55), 0 6px 0 rgba(10,4,20,.68)}
+    .bmc90-chip{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 14px;background:linear-gradient(180deg,#4c1f7e 0%,#2d1248 100%);color:#fff6e8;text-decoration:none;font-size:11px;text-shadow:1px 1px 0 #000}
+    .bmc90-window{border:2px solid #000;background:#1a0c2e;box-shadow:inset 2px 2px 0 rgba(255,255,255,.22), inset -2px -2px 0 rgba(0,0,0,.58), 0 12px 0 rgba(8,4,18,.75);overflow:hidden}
+    .bmc90-windowbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 10px;border-bottom:2px solid #000;background:linear-gradient(90deg,#7f2cc9 0%,#d03ea8 38%,#3b78ff 100%);color:#fff7d6;text-shadow:1px 1px 0 #000}
+    .bmc90-window-left{display:flex;align-items:center;gap:6px}
+    .bmc90-dot{width:14px;height:14px;background:#dbd7df;border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.7), inset -1px -1px 0 rgba(0,0,0,.4)}
+    .bmc90-window-title{font-size:12px}
+    .bmc90-panel,.bmc90-card,.bmc90-contact-strip,.bmc90-facts,.bmc90-schedule,.bmc90-menu{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),linear-gradient(180deg,var(--panel2),var(--panel));position:relative}
 
-    #bmc90-root .bmc90-wrap{position:relative; z-index:1; width:min(1200px, calc(100vw - 16px)); margin:0 auto}
-    #bmc90-root .bmc90-topbar{display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; padding:6px 0 12px}
-    #bmc90-root .bmc90-brand,
-    #bmc90-root .bmc90-chip,
-    #bmc90-root .bmc90-badge,
-    #bmc90-root .bmc90-ribbon,
-    #bmc90-root .bmc90-window-title,
-    #bmc90-root .bmc90-btn,
-    #bmc90-root .bmc90-section-tab,
-    #bmc90-root .bmc90-marquee,
-    #bmc90-root .bmc90-status{font-family:var(--ui-font); text-transform:uppercase; letter-spacing:.08em; font-weight:900}
-    #bmc90-root .bmc90-brand{color:var(--gold); font-size:12px; text-shadow:1px 1px 0 #000}
-    #bmc90-root .bmc90-actions{display:flex; gap:10px; flex-wrap:wrap}
+    .marquee-shell{position:relative;margin:6px 0 18px;padding:14px 16px 18px;background:linear-gradient(180deg,#754200 0%,#4b2500 100%);border-radius:18px;box-shadow:0 16px 0 rgba(16,8,18,.6), 0 0 0 4px rgba(255,216,87,.14)}
+    .bulb-strip{position:absolute;inset:8px;pointer-events:none}
+    .bulb-strip::before,.bulb-strip::after,.marquee-shell::before,.marquee-shell::after{content:"";position:absolute;left:8px;right:8px;height:12px;background:
+      radial-gradient(circle, #fff9c6 0 28%, rgba(255,216,87,.95) 29% 46%, rgba(255,216,87,.28) 47% 100%) 0 0/34px 12px repeat-x;
+      filter:drop-shadow(0 0 6px rgba(255,216,87,.7));animation:bulbPulse 1.3s steps(2) infinite}
+    .bulb-strip::before{top:0}
+    .bulb-strip::after{bottom:0}
+    .marquee-shell::before,.marquee-shell::after{top:18px;bottom:18px;width:12px;height:auto;left:8px;right:auto;background:radial-gradient(circle, #fff9c6 0 28%, rgba(255,216,87,.95) 29% 46%, rgba(255,216,87,.28) 47% 100%) 0 0/12px 34px repeat-y}
+    .marquee-shell::after{left:auto;right:8px}
+    @keyframes bulbPulse{0%,100%{opacity:1}50%{opacity:.74}}
+    .marquee-led{position:relative;z-index:1;padding:24px 26px 18px;border-radius:14px;border:2px solid #000;background:linear-gradient(180deg,#2a0938 0%, #180725 100%);text-align:center;box-shadow:inset 0 0 0 3px rgba(94,230,255,.7), 0 0 0 2px rgba(0,0,0,.45)}
+    .marquee-led .mini{display:block;font-size:12px;color:#ffd857;text-shadow:0 0 8px rgba(255,216,87,.85),1px 1px 0 #000;margin-bottom:10px}
+    .marquee-led .big{display:block;font-size:clamp(28px,5.5vw,70px);line-height:.95;color:#ffe67e;text-shadow:0 0 10px rgba(255,216,87,.78), 0 0 20px rgba(255,74,176,.35), 3px 3px 0 #000}
+    .marquee-led .sub{display:block;font-size:13px;color:#5ee6ff;text-shadow:0 0 8px rgba(94,230,255,.7),1px 1px 0 #000;margin-top:10px}
 
-    #bmc90-root .bmc90-chip,
-    #bmc90-root .bmc90-panel,
-    #bmc90-root .bmc90-card,
-    #bmc90-root .bmc90-contact-strip,
-    #bmc90-root .bmc90-mini,
-    #bmc90-root .bmc90-facts,
-    #bmc90-root .bmc90-schedule{border:2px solid #000; box-shadow:inset 2px 2px 0 rgba(255,255,255,.22), inset -2px -2px 0 rgba(0,0,0,.55), 0 6px 0 rgba(10,4,20,.68)}
+    .bmc90-hero{padding:8px 0 18px}
+    .bmc90-hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:18px;padding:20px}
+    .bmc90-copy{display:flex;flex-direction:column;justify-content:center}
+    .bmc90-badge{display:inline-flex;width:fit-content;min-height:34px;align-items:center;justify-content:center;padding:8px 12px;background:#34145d;color:var(--gold);font-size:11px;margin-bottom:12px;border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.18), inset -1px -1px 0 rgba(0,0,0,.45);text-shadow:1px 1px 0 #000}
+    h1,h2,h3{margin:0;line-height:.97;text-transform:uppercase;letter-spacing:-.03em;font-family:var(--ui-font);color:#fff1cb;text-shadow:2px 2px 0 #000}
+    h1{font-size:clamp(34px,5.2vw,70px)}
+    h2{font-size:clamp(24px,3vw,38px)}
+    h3{font-size:clamp(18px,2vw,28px)}
+    p,li,.bmc90-mini span,.bmc90-contact-box,.bmc90-line{font-size:15px;line-height:1.58;font-family:var(--body-font)}
+    .bmc90-copy p{max-width:720px;color:var(--muted);margin:14px 0 0}
+    .bmc90-hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .bmc90-btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 18px;border:2px solid #000;text-decoration:none;font-size:12px;cursor:pointer;box-shadow:inset 2px 2px 0 rgba(255,255,255,.22), inset -2px -2px 0 rgba(0,0,0,.55), 0 5px 0 rgba(10,4,18,.76)}
+    .bmc90-btn-primary{background:linear-gradient(180deg,#ff89cf 0%,#ff4ab0 45%,#b31e78 100%);color:#fff7e0;text-shadow:1px 1px 0 #000}
+    .bmc90-btn-secondary{background:linear-gradient(180deg,#9bf6ff 0%,#5ee6ff 45%,#1e86a8 100%);color:#171026}
+    .bmc90-marquee{margin-top:14px;padding:10px 12px;border:2px dashed var(--gold);color:#fff1cb;background:rgba(0,0,0,.18);font-size:11px;text-shadow:1px 1px 0 #000}
+    .bmc90-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start}
+    .bmc90-mini{background:rgba(255,255,255,.05);padding:14px;min-height:146px}
+    .bmc90-mini strong,.bmc90-contact-box strong,.bmc90-section-tab,.fact-card strong,.schedule-day strong,.menu-blurb strong,.cocktail-card strong{display:block;margin-bottom:8px;font-size:16px;line-height:1.24;font-family:var(--ui-font);text-transform:uppercase;color:#fff1cb;text-shadow:1px 1px 0 #000}
+    .bmc90-mini span{color:var(--muted);font-size:14px;line-height:1.5}
+    .bmc90-section{padding:18px 0 0}
+    .bmc90-ribbon{display:inline-flex;align-items:center;min-height:32px;padding:8px 12px;margin-bottom:10px;background:linear-gradient(180deg,#ffe57a 0%,#d6a926 100%);color:#241028;border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.32), inset -1px -1px 0 rgba(0,0,0,.28), 0 4px 0 rgba(10,4,18,.65);font-size:11px}
+    .bmc90-head p{max-width:760px;color:var(--muted);margin:10px 0 0}
+    .bmc90-two-col{display:grid;grid-template-columns:1.02fr .98fr;gap:18px;margin-top:14px}
+    .bmc90-facts,.bmc90-schedule,.bmc90-menu{padding:16px}
+    .bmc90-fact-grid,.bmc90-menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+    .fact-card,.menu-blurb,.cocktail-card{padding:12px;background:rgba(255,255,255,.06);border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.18), inset -1px -1px 0 rgba(0,0,0,.42)}
+    .fact-card span,.menu-blurb span,.cocktail-card span{display:block;color:var(--muted);font-size:14px;line-height:1.45}
+    .schedule-list{display:grid;gap:10px;margin-top:12px}
+    .schedule-day{padding:12px;background:rgba(0,0,0,.16);border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.10), inset -1px -1px 0 rgba(0,0,0,.42)}
+    .schedule-day ul{margin:0;padding-left:18px;color:var(--muted)}
+    .bmc90-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:14px}
+    .bmc90-card img{width:100%;height:300px;object-fit:cover;display:block;border-bottom:2px solid #000}
+    .bmc90-card-body{padding:18px}
+    .bmc90-list{margin:16px 0 0;padding-left:18px;color:var(--muted)}
+    .bmc90-contact-strip{margin-top:18px;padding:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .bmc90-contact-box{background:rgba(255,255,255,.05);padding:14px;border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.18), inset -1px -1px 0 rgba(0,0,0,.42)}
+    .bmc90-contact-box a{color:var(--cyan);text-decoration:none;word-break:break-word}
+    .bmc90-note{margin-top:16px;padding:14px;color:#eadcf0;background:rgba(255,255,255,.05);border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.18), inset -1px -1px 0 rgba(0,0,0,.42);font-size:14px;line-height:1.55}
+    .cocktail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+    .cocktail-card em{display:block;color:#5ee6ff;font-style:normal;font-size:12px;text-transform:uppercase;letter-spacing:.07em;margin-top:8px}
 
-    #bmc90-root .bmc90-chip{display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:10px 14px; background:linear-gradient(180deg,#4c1f7e 0%,#2d1248 100%); color:#fff6e8; text-decoration:none; font-size:11px; text-shadow:1px 1px 0 #000}
-    #bmc90-root .bmc90-window{border:2px solid #000; background:#1a0c2e; box-shadow:inset 2px 2px 0 rgba(255,255,255,.22), inset -2px -2px 0 rgba(0,0,0,.58), 0 12px 0 rgba(8,4,18,.75); overflow:hidden}
-    #bmc90-root .bmc90-windowbar{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:8px 10px; border-bottom:2px solid #000; background:linear-gradient(90deg,#7f2cc9 0%,#d03ea8 38%,#3b78ff 100%); color:#fff7d6; text-shadow:1px 1px 0 #000}
-    #bmc90-root .bmc90-window-left{display:flex; align-items:center; gap:6px}
-    #bmc90-root .bmc90-dot{width:14px; height:14px; background:#dbd7df; border:2px solid #000; box-shadow:inset 1px 1px 0 rgba(255,255,255,.7), inset -1px -1px 0 rgba(0,0,0,.4)}
-    #bmc90-root .bmc90-window-title{font-size:12px}
-
-    #bmc90-root .bmc90-panel,
-    #bmc90-root .bmc90-card,
-    #bmc90-root .bmc90-contact-strip,
-    #bmc90-root .bmc90-facts,
-    #bmc90-root .bmc90-schedule{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02)), linear-gradient(180deg,var(--panel2),var(--panel)); position:relative}
-
-    #bmc90-root .bmc90-hero{padding:10px 0 18px}
-    #bmc90-root .bmc90-hero-grid{display:grid; grid-template-columns:1.08fr .92fr; gap:18px; padding:20px}
-    #bmc90-root .bmc90-copy{display:flex; flex-direction:column; justify-content:center}
-    #bmc90-root .bmc90-badge{display:inline-flex; width:fit-content; min-height:34px; align-items:center; justify-content:center; padding:8px 12px; background:#34145d; color:var(--gold); font-size:11px; margin-bottom:12px; border:2px solid #000; box-shadow:inset 1px 1px 0 rgba(255,255,255,.18), inset -1px -1px 0 rgba(0,0,0,.45); text-shadow:1px 1px 0 #000}
-
-    #bmc90-root h1,#bmc90-root h2,#bmc90-root h3{margin:0; line-height:.97; text-transform:uppercase; letter-spacing:-.03em; font-family:var(--ui-font); color:#fff1cb; text-shadow:2px 2px 0 #000}
-    #bmc90-root h1{font-size:clamp(34px,5.2vw,70px)}
-    #bmc90-root h2{font-size:clamp(24px,3vw,38px)}
-    #bmc90-root h3{font-size:clamp(19px,2vw,28px)}
-
-    #bmc90-root p, #bmc90-root li, #bmc90-root .bmc90-mini span, #bmc90-root .bmc90-contact-box, #bmc90-root .bmc90-line{font-size:15px; line-height:1.58; font-family:var(--body-font)}
-    #bmc90-root .bmc90-copy p{max-width:700px; color:var(--muted); margin:14px 0 0}
-    #bmc90-root .bmc90-hero-buttons{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
-    #bmc90-root .bmc90-btn{display:inline-flex; align-items:center; justify-content:center; min-height:50px; padding:12px 18px; border:2px solid #000; text-decoration:none; font-size:12px; cursor:pointer; box-shadow:inset 2px 2px 0 rgba(255,255,255,.22), inset -2px -2px 0 rgba(0,0,0,.55), 0 5px 0 rgba(10,4,18,.76)}
-    #bmc90-root .bmc90-btn-primary{background:linear-gradient(180deg,#ff89cf 0%,#ff4ab0 45%,#b31e78 100%); color:#fff7e0; text-shadow:1px 1px 0 #000}
-    #bmc90-root .bmc90-btn-secondary{background:linear-gradient(180deg,#9bf6ff 0%,#5ee6ff 45%,#1e86a8 100%); color:#171026}
-    #bmc90-root .bmc90-marquee{margin-top:14px; padding:8px 10px; border:2px dashed var(--gold); color:#fff1cb; background:rgba(0,0,0,.18); font-size:11px; text-shadow:1px 1px 0 #000}
-
-    #bmc90-root .bmc90-mini-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start}
-    #bmc90-root .bmc90-mini{background:rgba(255,255,255,.05); padding:14px; min-height:146px}
-    #bmc90-root .bmc90-mini strong, #bmc90-root .bmc90-contact-box strong, #bmc90-root .bmc90-section-tab{display:block; margin-bottom:8px; font-size:16px; line-height:1.24; font-family:var(--ui-font); text-transform:uppercase; color:#fff1cb; text-shadow:1px 1px 0 #000}
-    #bmc90-root .bmc90-mini span{color:var(--muted); font-size:14px; line-height:1.5}
-
-    #bmc90-root .bmc90-section{padding:18px 0 0}
-    #bmc90-root .bmc90-ribbon{display:inline-flex; align-items:center; min-height:32px; padding:8px 12px; margin-bottom:10px; background:linear-gradient(180deg,#ffe57a 0%,#d6a926 100%); color:#241028; border:2px solid #000; box-shadow:inset 1px 1px 0 rgba(255,255,255,.32), inset -1px -1px 0 rgba(0,0,0,.28), 0 4px 0 rgba(10,4,18,.65); font-size:11px}
-    #bmc90-root .bmc90-head p{max-width:760px; color:var(--muted); margin:10px 0 0}
-
-    #bmc90-root .bmc90-two-col{display:grid; grid-template-columns:1.02fr .98fr; gap:18px; margin-top:14px}
-    #bmc90-root .bmc90-facts, #bmc90-root .bmc90-schedule{padding:16px}
-    #bmc90-root .bmc90-fact-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px}
-    #bmc90-root .fact-card{padding:12px; background:rgba(255,255,255,.06); border:2px solid #000; box-shadow:inset 1px 1px 0 rgba(255,255,255,.18), inset -1px -1px 0 rgba(0,0,0,.42)}
-    #bmc90-root .fact-card strong{display:block; margin-bottom:6px; color:#fff1cb; font-family:var(--ui-font); text-transform:uppercase; font-size:14px; text-shadow:1px 1px 0 #000}
-    #bmc90-root .fact-card span{display:block; color:var(--muted); font-size:14px; line-height:1.45}
-    #bmc90-root .schedule-list{display:grid; gap:10px; margin-top:12px}
-    #bmc90-root .schedule-day{padding:12px; background:rgba(0,0,0,.16); border:2px solid #000; box-shadow:inset 1px 1px 0 rgba(255,255,255,.10), inset -1px -1px 0 rgba(0,0,0,.42)}
-    #bmc90-root .schedule-day strong{display:block; color:#fff1cb; font-family:var(--ui-font); text-transform:uppercase; font-size:14px; margin-bottom:6px; text-shadow:1px 1px 0 #000}
-    #bmc90-root .schedule-day ul{margin:0; padding-left:18px; color:var(--muted)}
-
-    #bmc90-root .bmc90-cards{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:14px}
-    #bmc90-root .bmc90-card img{width:100%; height:300px; object-fit:cover; display:block; border-bottom:2px solid #000}
-    #bmc90-root .bmc90-card-body{padding:18px}
-    #bmc90-root .bmc90-list{margin:16px 0 0; padding-left:18px; color:var(--muted)}
-    #bmc90-root .bmc90-contact-strip{margin-top:18px; padding:16px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
-    #bmc90-root .bmc90-contact-box{background:rgba(255,255,255,.05); padding:14px; border:2px solid #000; box-shadow:inset 1px 1px 0 rgba(255,255,255,.18), inset -1px -1px 0 rgba(0,0,0,.42)}
-    #bmc90-root .bmc90-contact-box a{color:var(--cyan); text-decoration:none; word-break:break-word}
-    #bmc90-root .bmc90-note{margin-top:16px; padding:14px; color:#eadcf0; background:rgba(255,255,255,.05); border:2px solid #000; box-shadow:inset 1px 1px 0 rgba(255,255,255,.18), inset -1px -1px 0 rgba(0,0,0,.42); font-size:14px; line-height:1.55}
-
-    /* moving corner sprites */
-    #sprite-layer{position:fixed; inset:0; pointer-events:none; z-index:5}
-    .corner-cat{position:fixed; width:80px; height:80px; background:url('./assets/jazzycat-sprite-sheet.png') 0 0/320px 80px no-repeat; image-rendering:pixelated; filter:drop-shadow(0 10px 16px rgba(0,0,0,.42)); opacity:.93; animation:catFrames .92s steps(4) infinite; pointer-events:auto; cursor:pointer}
-    .corner-cat::after{content:attr(data-label); position:absolute; left:50%; bottom:-24px; transform:translateX(-50%); background:linear-gradient(180deg,#ffe57a,#d6a926); color:#231029; padding:3px 7px; border:2px solid #000; font:900 10px/1 Chicago,Geneva,Verdana,sans-serif; text-transform:uppercase; opacity:0; transition:opacity .18s; white-space:nowrap}
+    #sprite-layer{position:fixed;inset:0;pointer-events:none;z-index:5}
+    .corner-cat{position:fixed;width:80px;height:80px;background:url('./assets/jazzycat-sprite-sheet.png') 0 0/320px 80px no-repeat;image-rendering:pixelated;filter:drop-shadow(0 10px 16px rgba(0,0,0,.42));opacity:.93;animation:catFrames .92s steps(4) infinite;pointer-events:auto;cursor:pointer}
+    .corner-cat::after{content:attr(data-label);position:absolute;left:50%;bottom:-24px;transform:translateX(-50%);background:linear-gradient(180deg,#ffe57a,#d6a926);color:#231029;padding:3px 7px;border:2px solid #000;font:900 10px/1 Chicago,Geneva,Verdana,sans-serif;text-transform:uppercase;opacity:0;transition:opacity .18s;white-space:nowrap}
     .corner-cat:hover::after{opacity:1}
-    .corner-1{top:72px; right:16px; animation:catFrames .92s steps(4) infinite, driftA 18s ease-in-out infinite}
-    .corner-2{bottom:18px; left:12px; transform:scale(.92); animation:catFrames .92s steps(4) infinite, driftB 22s ease-in-out infinite}
-    .corner-3{top:14px; left:54%; transform:scale(.76); animation:catFrames .92s steps(4) infinite, driftC 20s ease-in-out infinite}
+    .corner-1{top:72px;right:16px;animation:catFrames .92s steps(4) infinite, driftA 18s ease-in-out infinite}
+    .corner-2{bottom:18px;left:12px;transform:scale(.92);animation:catFrames .92s steps(4) infinite, driftB 22s ease-in-out infinite}
+    .corner-3{top:14px;left:54%;transform:scale(.76);animation:catFrames .92s steps(4) infinite, driftC 20s ease-in-out infinite}
     @keyframes catFrames{from{background-position:0 0}to{background-position:-320px 0}}
     @keyframes driftA{0%,100%{transform:translate(0,0)}50%{transform:translate(-10px,14px)}}
     @keyframes driftB{0%,100%{transform:translate(0,0) scale(.92)}50%{transform:translate(12px,-10px) scale(.98)}}
     @keyframes driftC{0%,100%{transform:translate(0,0) scale(.76)}50%{transform:translate(8px,10px) scale(.82)}}
 
-    /* main pet */
-    #jazzycat-pet{position:fixed; left:36px; top:120px; width:118px; height:106px; z-index:9998; pointer-events:none; touch-action:none; user-select:none; will-change:transform}
-    #jazzycat-hitbox{position:absolute; inset:0; appearance:none; background:none; border:none; padding:0; margin:0; cursor:grab; pointer-events:auto; outline:none}
+    #jazzycat-pet{position:fixed;left:36px;top:120px;width:118px;height:106px;z-index:9998;pointer-events:none;touch-action:none;user-select:none;will-change:transform}
+    #jazzycat-hitbox{position:absolute;inset:0;appearance:none;background:none;border:none;padding:0;margin:0;cursor:grab;pointer-events:auto;outline:none}
     #jazzycat-hitbox:active{cursor:grabbing}
-    .jc-shadow{position:absolute; left:18px; right:10px; bottom:3px; height:12px; background:radial-gradient(ellipse at center, rgba(0,0,0,.55), rgba(0,0,0,0) 72%); filter:blur(1px); opacity:.78; transform-origin:center center}
-    .jc-sprite{position:absolute; inset:0; background:url('./assets/jazzycat-sprite-sheet.png') 0 0/472px 106px no-repeat; image-rendering:pixelated; filter:drop-shadow(0 4px 0 rgba(0,0,0,.28)); animation:petFrames .9s steps(4) infinite}
+    .jc-shadow{position:absolute;left:18px;right:10px;bottom:3px;height:12px;background:radial-gradient(ellipse at center, rgba(0,0,0,.55), rgba(0,0,0,0) 72%);filter:blur(1px);opacity:.78;transform-origin:center center}
+    .jc-sprite{position:absolute;inset:0;background:url('./assets/jazzycat-sprite-sheet.png') 0 0/472px 106px no-repeat;image-rendering:pixelated;filter:drop-shadow(0 4px 0 rgba(0,0,0,.28));animation:petFrames .9s steps(4) infinite}
     @keyframes petFrames{from{background-position:0 0}to{background-position:-472px 0}}
+    #jazzycat-bubble{position:fixed;max-width:290px;padding:10px 12px;background:linear-gradient(180deg,#fffce8 0%,#f4efcc 100%);color:#241028;border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.7), inset -1px -1px 0 rgba(0,0,0,.18), 0 6px 0 rgba(0,0,0,.22);z-index:9999;font:700 12px/1.45 Chicago, Geneva, Verdana, sans-serif;text-transform:uppercase;letter-spacing:.03em;pointer-events:none;opacity:0;transform:translateY(8px);transition:opacity .18s ease, transform .18s ease}
+    #jazzycat-bubble.show{opacity:1;transform:translateY(0)}
+    #jazzycat-bubble::after{content:"";position:absolute;left:18px;bottom:-12px;border-width:12px 10px 0 0;border-style:solid;border-color:#000 transparent transparent transparent}
+    #jazzycat-bubble::before{content:"";position:absolute;left:20px;bottom:-8px;border-width:10px 8px 0 0;border-style:solid;border-color:#f4efcc transparent transparent transparent;z-index:1}
 
-    #jazzycat-bubble{position:fixed; max-width:280px; padding:10px 12px; background:linear-gradient(180deg,#fffce8 0%,#f4efcc 100%); color:#241028; border:2px solid #000; box-shadow:inset 1px 1px 0 rgba(255,255,255,.7), inset -1px -1px 0 rgba(0,0,0,.18), 0 6px 0 rgba(0,0,0,.22); z-index:9999; font:700 12px/1.45 Chicago, Geneva, Verdana, sans-serif; text-transform:uppercase; letter-spacing:.03em; pointer-events:none; opacity:0; transform:translateY(8px); transition:opacity .18s ease, transform .18s ease}
-    #jazzycat-bubble.show{opacity:1; transform:translateY(0)}
-    #jazzycat-bubble::after{content:""; position:absolute; left:18px; bottom:-12px; border-width:12px 10px 0 0; border-style:solid; border-color:#000 transparent transparent transparent}
-    #jazzycat-bubble::before{content:""; position:absolute; left:20px; bottom:-8px; border-width:10px 8px 0 0; border-style:solid; border-color:#f4efcc transparent transparent transparent; z-index:1}
-
-    #jazzycat-helper{position:fixed; right:16px; bottom:16px; width:min(390px, calc(100vw - 16px)); z-index:9997; border:2px solid #000; background:#c0c0c0; box-shadow:8px 8px 0 rgba(0,0,0,.32); font-family:Geneva, Verdana, Arial, sans-serif}
+    #jazzycat-helper{position:fixed;right:16px;bottom:16px;width:min(398px, calc(100vw - 16px));z-index:9997;border:2px solid #000;background:#c0c0c0;box-shadow:8px 8px 0 rgba(0,0,0,.32);font-family:Geneva,Verdana,Arial,sans-serif}
     #jazzycat-helper.is-hidden{display:none}
-    .jc-bar{display:flex; justify-content:space-between; align-items:center; gap:8px; padding:6px 8px; color:#fff; background:linear-gradient(90deg,#0a246a 0%,#1451c6 55%,#0a246a 100%); border-bottom:2px solid #000; font:700 12px/1 Chicago, Geneva, Verdana, sans-serif; text-transform:uppercase; letter-spacing:.06em; user-select:none}
-    .jc-bar-left{display:flex; align-items:center; gap:6px; min-width:0}
-    .jc-bar-dot{width:12px; height:12px; background:#d7d7d7; border:1px solid #000; box-shadow:inset 1px 1px 0 rgba(255,255,255,.65), inset -1px -1px 0 rgba(0,0,0,.35)}
-    .jc-bar-title{white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-    .jc-close{appearance:none; border:none; background:#c0c0c0; color:#111; padding:2px 8px; cursor:pointer; border-top:2px solid #fff; border-left:2px solid #fff; border-right:2px solid #333; border-bottom:2px solid #333; font:700 11px/1 Chicago, Geneva, Verdana, sans-serif}
-    .jc-inner{padding:10px; background:#c0c0c0}
-    .jc-intro{padding:8px 10px; background:#111; color:#79ffcb; border-top:2px solid #5c5c5c; border-left:2px solid #5c5c5c; border-right:2px solid #000; border-bottom:2px solid #000; font:700 12px/1.45 "Courier New", monospace; margin-bottom:8px}
-    .jc-quick{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px}
-    .jc-q,.jc-send,.jc-open{appearance:none; border:none; background:#c0c0c0; color:#111; padding:7px 8px; cursor:pointer; border-top:2px solid #fff; border-left:2px solid #fff; border-right:2px solid #333; border-bottom:2px solid #333; font:700 11px/1.1 Chicago, Geneva, Verdana, sans-serif; text-transform:uppercase}
-    .jc-q:active,.jc-send:active,.jc-open:active,.jc-close:active{border-top:2px solid #333; border-left:2px solid #333; border-right:2px solid #fff; border-bottom:2px solid #fff; transform:translate(1px,1px)}
-    .jc-log{min-height:180px; max-height:260px; overflow:auto; padding:10px; background:#050505; color:#d7ffe8; border-top:2px solid #5c5c5c; border-left:2px solid #5c5c5c; border-right:2px solid #000; border-bottom:2px solid #000; font:700 12px/1.5 "Courier New", monospace; scroll-behavior:smooth}
-    .jc-msg{margin:0 0 10px; white-space:pre-wrap; animation:jcFadeIn .18s ease}
-    @keyframes jcFadeIn{from{opacity:0; transform:translateY(4px)}to{opacity:1; transform:translateY(0)}}
-    .jc-msg.user{color:#9be6ff}
-    .jc-msg.bot{color:#e9ffd0}
-    .jc-msg.bot strong{color:#ffe16b}
-    .jc-msg.typing{color:#888; font-style:italic}
-    .jc-cursor{display:inline-block; width:8px; height:13px; background:#79ffcb; vertical-align:text-bottom; margin-left:2px; animation:jcBlink .7s step-end infinite}
-    @keyframes jcBlink{0%,100%{opacity:1}50%{opacity:0}}
-    .jc-compose{display:grid; grid-template-columns:1fr auto; gap:8px; margin-top:8px}
-    .jc-compose input{width:100%; min-width:0; padding:10px; background:#fff; color:#111; border-top:2px solid #333; border-left:2px solid #333; border-right:2px solid #fff; border-bottom:2px solid #fff; font:14px/1.2 Geneva, Verdana, Arial, sans-serif}
-    .jc-compose input:disabled{background:#e0e0e0; color:#888}
-    .jc-send:disabled{opacity:.55; cursor:not-allowed; transform:none !important}
-    .jc-status{padding:4px 10px; font:700 10px/1 "Courier New", monospace; text-transform:uppercase; letter-spacing:.05em; color:#555; border-top:1px solid #999; background:#c0c0c0; display:flex; align-items:center; gap:6px; min-height:22px}
-    .jc-status-dot{width:7px; height:7px; border-radius:50%; background:#555; transition:background .3s}
-    .jc-status-dot.thinking{background:#ffd857; animation:jcPulse 1s ease-in-out infinite}
-    .jc-status-dot.ready{background:#7df07a}
-    @keyframes jcPulse{0%,100%{opacity:1}50%{opacity:.35}}
-    #jazzycat-launcher{position:fixed; right:16px; bottom:16px; z-index:9996; display:none}
-    #jazzycat-launcher.show{display:block}
-    .jc-note{position:fixed; z-index:9995; color:#ffe16b; font:900 18px/1 Chicago, Geneva, Verdana, sans-serif; text-shadow:0 0 8px rgba(255,216,87,.75); pointer-events:none; animation:jcNote 1.5s linear forwards}
-    @keyframes jcNote{0%{opacity:0; transform:translate(0,0) scale(.6)}12%{opacity:1}100%{opacity:0; transform:translate(var(--dx), var(--dy)) scale(1.18)}}
+    .jc-bar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 8px;color:#fff;background:linear-gradient(90deg,#0a246a 0%,#1451c6 55%,#0a246a 100%);border-bottom:2px solid #000;font:700 12px/1 Chicago, Geneva, Verdana, sans-serif;text-transform:uppercase;letter-spacing:.06em;user-select:none}
+    .jc-bar-left{display:flex;align-items:center;gap:6px;min-width:0}.jc-bar-dot{width:12px;height:12px;background:#d7d7d7;border:1px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.65), inset -1px -1px 0 rgba(0,0,0,.35)}
+    .jc-bar-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .jc-close{appearance:none;border:none;background:#c0c0c0;color:#111;padding:2px 8px;cursor:pointer;border-top:2px solid #fff;border-left:2px solid #fff;border-right:2px solid #333;border-bottom:2px solid #333;font:700 11px/1 Chicago, Geneva, Verdana, sans-serif}
+    .jc-inner{padding:10px;background:#c0c0c0}.jc-intro{padding:8px 10px;background:#111;color:#79ffcb;border-top:2px solid #5c5c5c;border-left:2px solid #5c5c5c;border-right:2px solid #000;border-bottom:2px solid #000;font:700 12px/1.45 "Courier New", monospace;margin-bottom:8px}
+    .jc-quick{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.jc-q,.jc-send,.jc-open{appearance:none;border:none;background:#c0c0c0;color:#111;padding:7px 8px;cursor:pointer;border-top:2px solid #fff;border-left:2px solid #fff;border-right:2px solid #333;border-bottom:2px solid #333;font:700 11px/1.1 Chicago, Geneva, Verdana, sans-serif;text-transform:uppercase}
+    .jc-q:active,.jc-send:active,.jc-open:active,.jc-close:active{border-top:2px solid #333;border-left:2px solid #333;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:translate(1px,1px)}
+    .jc-log{min-height:180px;max-height:260px;overflow:auto;padding:10px;background:#050505;color:#d7ffe8;border-top:2px solid #5c5c5c;border-left:2px solid #5c5c5c;border-right:2px solid #000;border-bottom:2px solid #000;font:700 12px/1.5 "Courier New", monospace;scroll-behavior:smooth}
+    .jc-msg{margin:0 0 10px;white-space:pre-wrap;animation:jcFadeIn .18s ease}@keyframes jcFadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+    .jc-msg.user{color:#9be6ff}.jc-msg.bot{color:#e9ffd0}.jc-msg.bot strong{color:#ffe16b}.jc-msg.typing{color:#888;font-style:italic}
+    .jc-cursor{display:inline-block;width:8px;height:13px;background:#79ffcb;vertical-align:text-bottom;margin-left:2px;animation:jcBlink .7s step-end infinite}@keyframes jcBlink{0%,100%{opacity:1}50%{opacity:0}}
+    .jc-compose{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:8px}.jc-compose input{width:100%;min-width:0;padding:10px;background:#fff;color:#111;border-top:2px solid #333;border-left:2px solid #333;border-right:2px solid #fff;border-bottom:2px solid #fff;font:14px/1.2 Geneva, Verdana, Arial, sans-serif}
+    .jc-compose input:disabled{background:#e0e0e0;color:#888}.jc-send:disabled{opacity:.55;cursor:not-allowed;transform:none !important}
+    .jc-status{padding:4px 10px;font:700 10px/1 "Courier New", monospace;text-transform:uppercase;letter-spacing:.05em;color:#555;border-top:1px solid #999;background:#c0c0c0;display:flex;align-items:center;gap:6px;min-height:22px}
+    .jc-status-dot{width:7px;height:7px;border-radius:50%;background:#555;transition:background .3s}.jc-status-dot.thinking{background:#ffd857;animation:jcPulse 1s ease-in-out infinite}.jc-status-dot.ready{background:#7df07a}@keyframes jcPulse{0%,100%{opacity:1}50%{opacity:.35}}
+    #jazzycat-launcher{position:fixed;right:16px;bottom:16px;z-index:9996;display:none}#jazzycat-launcher.show{display:block}
+    .jc-note{position:fixed;z-index:9995;color:#ffe16b;font:900 18px/1 Chicago, Geneva, Verdana, sans-serif;text-shadow:0 0 8px rgba(255,216,87,.75);pointer-events:none;animation:jcNote 1.5s linear forwards}
+    @keyframes jcNote{0%{opacity:0;transform:translate(0,0) scale(.6)}12%{opacity:1}100%{opacity:0;transform:translate(var(--dx), var(--dy)) scale(1.18)}}
 
     @media (max-width:980px){
-      #bmc90-root .bmc90-hero-grid,
-      #bmc90-root .bmc90-two-col,
-      #bmc90-root .bmc90-cards,
-      #bmc90-root .bmc90-contact-strip{grid-template-columns:1fr}
-      #bmc90-root .bmc90-mini-grid,
-      #bmc90-root .bmc90-fact-grid{grid-template-columns:1fr 1fr}
-      .bg-a{width:min(58vw,520px)}
-      .bg-b{width:min(48vw,420px)}
+      .bmc90-hero-grid,.bmc90-two-col,.bmc90-cards,.bmc90-contact-strip{grid-template-columns:1fr}
+      .bmc90-mini-grid,.bmc90-fact-grid,.bmc90-menu-grid,.cocktail-grid{grid-template-columns:1fr 1fr}
+      .bg-a{width:min(58vw,520px)} .bg-b{width:min(48vw,420px)}
     }
-
     @media (max-width:680px){
       #bmc90-root{padding:12px 0 30px}
-      #bmc90-root::before{background-size:280px auto}
-      #bmc90-root .bmc90-wrap{width:calc(100vw - 12px)}
-      #bmc90-root .bmc90-hero-grid,
-      #bmc90-root .bmc90-card-body,
-      #bmc90-root .bmc90-facts,
-      #bmc90-root .bmc90-schedule{padding:14px}
-      #bmc90-root .bmc90-mini-grid,
-      #bmc90-root .bmc90-fact-grid{grid-template-columns:1fr}
-      #bmc90-root .bmc90-card img{height:220px}
-      #bmc90-root .bmc90-actions,
-      #bmc90-root .bmc90-hero-buttons{width:100%}
-      #bmc90-root .bmc90-btn,
-      #bmc90-root .bmc90-chip{width:100%}
-      #bmc90-root h1{font-size:clamp(28px,10vw,44px)}
-      #bmc90-root h2{font-size:clamp(22px,8vw,32px)}
-      #bmc90-root .bmc90-brand{width:100%; font-size:11px}
-      .bg-art{opacity:.18}
-      .bg-a{right:-16%; top:6%; width:78vw}
-      .bg-b{left:-14%; bottom:10%; width:72vw}
-      #jazzycat-pet{width:92px; height:82px}
-      .jc-sprite{background-size:368px 82px}
-      #jazzycat-helper{right:8px; bottom:8px; width:calc(100vw - 16px); max-width:none}
-      .jc-compose{grid-template-columns:1fr}
-      #jazzycat-bubble{max-width:220px; font-size:11px}
-      .corner-cat{width:64px; height:64px; background-size:256px 64px}
-      .corner-3{display:none}
+      .bg-rotator::before,.bg-rotator::after{background-size:280px auto}
+      .bmc90-wrap{width:calc(100vw - 12px)}
+      .bmc90-hero-grid,.bmc90-card-body,.bmc90-facts,.bmc90-schedule,.bmc90-menu{padding:14px}
+      .bmc90-mini-grid,.bmc90-fact-grid,.bmc90-menu-grid,.cocktail-grid{grid-template-columns:1fr}
+      .bmc90-card img{height:220px}
+      .bmc90-actions,.bmc90-hero-buttons{width:100%}
+      .bmc90-btn,.bmc90-chip{width:100%}
+      h1{font-size:clamp(28px,10vw,44px)} h2{font-size:clamp(22px,8vw,32px)}
+      .bmc90-brand{width:100%;font-size:11px}
+      .bg-art{opacity:.17}.bg-a{right:-16%;top:6%;width:78vw}.bg-b{left:-14%;bottom:10%;width:72vw}
+      #jazzycat-pet{width:92px;height:82px}.jc-sprite{background-size:368px 82px}
+      #jazzycat-helper{right:8px;bottom:8px;width:calc(100vw - 16px);max-width:none}
+      .jc-compose{grid-template-columns:1fr}#jazzycat-bubble{max-width:220px;font-size:11px}
+      .corner-cat{width:64px;height:64px;background-size:256px 64px}.corner-3{display:none}
+      .marquee-led .big{font-size:clamp(24px,9vw,38px)}
     }
   </style>
 </head>
 <body>
   <div id="bmc90-root">
+    <div class="bg-rotator" aria-hidden="true"></div>
     <div class="bg-art" aria-hidden="true">
       <img class="bg-a" src="./assets/jazzycat-bg-wide.webp" alt="" />
       <img class="bg-b" src="./assets/jazzycat-poster.webp" alt="" />
@@ -260,19 +205,26 @@
 
     <div class="bmc90-wrap">
       <div class="bmc90-topbar">
-        <div class="bmc90-brand">Balcony Music Club • JazzyCat desktop • New Orleans • Live guide</div>
+        <div class="bmc90-brand">Balcony Music Club • JazzyCat desktop • New Orleans • live guide</div>
         <div class="bmc90-actions">
           <a class="bmc90-chip" id="eventsChip" href="mailto:BMC@marullomgmt.com">Private Events</a>
           <a class="bmc90-chip" id="paintChip" href="tel:+15042818736">Paint &amp; Sip</a>
         </div>
       </div>
 
+      <div class="marquee-shell">
+        <div class="bulb-strip"></div>
+        <div class="marquee-led">
+          <span class="mini">Balcony Music Club</span>
+          <span class="big">NO COVER • NO CHARGE</span>
+          <span class="sub">Founded 2011 • cocktails • THC seltzers • craft beer • live music</span>
+        </div>
+      </div>
+
       <section class="bmc90-hero">
         <div class="bmc90-window">
           <div class="bmc90-windowbar">
-            <div class="bmc90-window-left">
-              <span class="bmc90-dot"></span><span class="bmc90-dot"></span><span class="bmc90-dot"></span>
-            </div>
+            <div class="bmc90-window-left"><span class="bmc90-dot"></span><span class="bmc90-dot"></span><span class="bmc90-dot"></span></div>
             <div class="bmc90-window-title">JAZZYCAT.EXE</div>
             <div class="bmc90-window-title" id="topStatus">LOADING</div>
           </div>
@@ -280,19 +232,19 @@
             <div class="bmc90-hero-grid">
               <div class="bmc90-copy">
                 <div class="bmc90-badge" id="badgeLine">Balcony Music Club</div>
-                <h1>Ask JazzyCat About the Club, the History, and Tonight</h1>
+                <h1>Ask JazzyCat About the Club, the Drinks, and Tonight</h1>
                 <p id="heroSummary">Loading local venue knowledge…</p>
                 <div class="bmc90-hero-buttons">
                   <button class="bmc90-btn bmc90-btn-primary" type="button" id="openHelperBtn">Open JazzyCat</button>
-                  <a class="bmc90-btn bmc90-btn-secondary" href="#schedulePanel">See What’s Happening</a>
+                  <a class="bmc90-btn bmc90-btn-secondary" href="#menuPanel">See the House Menu</a>
                 </div>
                 <div class="bmc90-marquee" id="heroNote">French Quarter atmosphere loading…</div>
               </div>
               <div class="bmc90-mini-grid">
-                <div class="bmc90-mini"><strong>Founded in 2011</strong><span>Balcony Music Club opened in 2011 and has been part of the club fabric of the Quarter ever since.</span></div>
-                <div class="bmc90-mini"><strong>No Cover, No Charge</strong><span>No cover. No charge. Walk in, get a drink, and catch the room in motion.</span></div>
-                <div class="bmc90-mini"><strong>Before BMC: The Matador</strong><span>Before Balcony Music Club, the room carried an earlier life as The Matador.</span></div>
-                <div class="bmc90-mini"><strong>Haunted Tours &amp; Patio Backbar</strong><span>The bar is part of local haunted-history conversation, and the patio backbar serves fresh-made-to-order chicken paninis.</span></div>
+                <div class="bmc90-mini"><strong>Founded in 2011</strong><span>Balcony Music Club opened in 2011 and keeps its own late-night identity.</span></div>
+                <div class="bmc90-mini"><strong>No Cover, No Charge</strong><span>Walk in, get a drink, and catch the room moving. No cover. No charge.</span></div>
+                <div class="bmc90-mini"><strong>Haunted Bar Energy</strong><span>The bar lives inside local haunted-history-tour conversation and ghost-story lore.</span></div>
+                <div class="bmc90-mini"><strong>Patio Backbar</strong><span>Fresh-made-to-order chicken paninis plus a drink program built around cocktails, THC seltzers, and craft beer.</span></div>
               </div>
             </div>
           </div>
@@ -301,9 +253,9 @@
 
       <section class="bmc90-section">
         <div class="bmc90-head">
-          <div class="bmc90-ribbon">Club history • house facts • what people ask first</div>
-          <h2>The Club Story, the House Rules, and the Haunted Side</h2>
-          <p>Balcony Music Club opened in 2011, carries older history from its Matador days, runs with a no-cover spirit, and has enough ghost-story energy to land on haunted-history tours in the city.</p>
+          <div class="bmc90-ribbon">Club history • house facts • the first things people ask</div>
+          <h2>The club story, the haunted side, and the no-cover promise</h2>
+          <p>Balcony Music Club opened in 2011, carries a no-cover, no-charge spirit, shows up in local haunted-bar lore, and keeps the patio backbar working with fresh-made-to-order chicken paninis.</p>
         </div>
 
         <div class="bmc90-two-col">
@@ -333,11 +285,33 @@
         </div>
       </section>
 
+      <section class="bmc90-section" id="menuPanel">
+        <div class="bmc90-head">
+          <div class="bmc90-ribbon">House menu</div>
+          <h2>Specialty craft cocktails, THC seltzers, craft beer, and patio backbar bites</h2>
+          <p id="menuHeadline">Loading the house menu…</p>
+        </div>
+
+        <div class="bmc90-window">
+          <div class="bmc90-windowbar">
+            <div class="bmc90-window-left"><span class="bmc90-dot"></span><span class="bmc90-dot"></span><span class="bmc90-dot"></span></div>
+            <div class="bmc90-window-title">HOUSE_MENU.LST</div>
+            <div class="bmc90-window-title">READY</div>
+          </div>
+          <div class="bmc90-menu">
+            <div class="bmc90-section-tab">Menu categories</div>
+            <div class="bmc90-menu-grid" id="menuGrid"></div>
+            <div class="cocktail-grid" id="cocktailGrid"></div>
+            <div class="bmc90-note" id="menuMarketing">Whether you’re looking for a craft cocktail in New Orleans, a courtyard bar on Frenchmen Street, or the perfect start to your night, BMC is the move.</div>
+          </div>
+        </div>
+      </section>
+
       <section class="bmc90-section">
         <div class="bmc90-head">
           <div class="bmc90-ribbon">House guide</div>
           <h2>JazzyCat can answer the questions people actually ask</h2>
-          <p>People usually want the same things fast: where the club came from, whether there is a cover, what the haunted angle is, what is on tonight, and what the patio backbar is cooking.</p>
+          <p>People usually want the same things fast: where the club came from, whether there is a cover, what the haunted angle is, what is on tonight, and what is being poured or pressed at the bar.</p>
         </div>
 
         <div class="bmc90-cards">
@@ -349,7 +323,7 @@
             </div>
             <img src="./assets/jazzycat-bg-wide.webp" alt="Balcony Music Club styled background art" />
             <div class="bmc90-card-body">
-              <div class="bmc90-badge">History • no cover • haunted tours • food</div>
+              <div class="bmc90-badge">History • no cover • haunted tours • menu</div>
               <h3>Fast answers about the club</h3>
               <p id="sidebarSummary">JazzyCat can answer venue basics from the local knowledge files and stay honest when something has not been loaded yet.</p>
               <ul class="bmc90-list" id="quickList"></ul>
@@ -367,7 +341,7 @@
               <div class="bmc90-badge">French Quarter glow • old stories • late-night flavor</div>
               <h3>Old soul, live room</h3>
               <p id="posterCaption">A brighter Mardi Gras frame around the older desktop-helper vibe.</p>
-              <div class="bmc90-note">Ask JazzyCat about the club’s 2011 opening, its earlier Matador chapter, the no-cover atmosphere, haunted-history-tour lore, or the patio backbar’s fresh-made-to-order chicken paninis.</div>
+              <div class="bmc90-note" id="marketingLine">Whether you’re looking for a craft cocktail in New Orleans, a courtyard bar on Frenchmen Street, or the perfect start to your night, BMC is the move.</div>
             </div>
           </article>
         </div>
@@ -379,7 +353,7 @@
 
   <div id="sprite-layer" aria-hidden="true">
     <button class="corner-cat corner-1" type="button" data-label="Tonight" data-prompt="What is happening tonight?"></button>
-    <button class="corner-cat corner-2" type="button" data-label="Happy Hour" data-prompt="When is Thursday happy hour?"></button>
+    <button class="corner-cat corner-2" type="button" data-label="Cocktails" data-prompt="What kind of drinks do you have?"></button>
     <button class="corner-cat corner-3" type="button" data-label="Brunch" data-prompt="When is Bloody Mary brunch?"></button>
   </div>
 
@@ -393,22 +367,14 @@
 
   <section id="jazzycat-helper" class="is-hidden" aria-label="JazzyCat helper window">
     <div class="jc-bar">
-      <div class="jc-bar-left">
-        <span class="jc-bar-dot"></span><span class="jc-bar-dot"></span><span class="jc-bar-dot"></span>
-        <span class="jc-bar-title">JAZZYCAT.EXE — CLUB GUIDE</span>
-      </div>
+      <div class="jc-bar-left"><span class="jc-bar-dot"></span><span class="jc-bar-dot"></span><span class="jc-bar-dot"></span><span class="jc-bar-title">JAZZYCAT.EXE — CLUB GUIDE</span></div>
       <button class="jc-close" id="jc-close" type="button">X</button>
     </div>
     <div class="jc-inner">
       <div class="jc-intro" id="jc-intro">&gt; JazzyCat online.<br>&gt; Loading venue memory…</div>
       <div class="jc-quick" id="jc-quick"></div>
-      <div class="jc-log" id="jc-log">
-        <div class="jc-msg bot"><strong>JazzyCat:</strong> Meow. Give me a second to load the local club files and I will start sounding informed again.</div>
-      </div>
-      <div class="jc-compose">
-        <input id="jc-input" type="text" placeholder="Ask JazzyCat something." autocomplete="off" />
-        <button class="jc-send" id="jc-send" type="button">Ask</button>
-      </div>
+      <div class="jc-log" id="jc-log"><div class="jc-msg bot"><strong>JazzyCat:</strong> Meow. Give me a second to load the local club files and I will start sounding informed again.</div></div>
+      <div class="jc-compose"><input id="jc-input" type="text" placeholder="Ask JazzyCat something." autocomplete="off" /><button class="jc-send" id="jc-send" type="button">Ask</button></div>
       <div class="jc-status"><span class="jc-status-dot ready" id="jc-status-dot"></span><span id="jc-status-text">Loading</span></div>
     </div>
   </section>
@@ -416,383 +382,143 @@
   <script>
   (function(){
     const state = { knowledge:null, schedule:null, artists:null };
-
-    const pet       = document.getElementById('jazzycat-pet');
-    const hitbox    = document.getElementById('jazzycat-hitbox');
-    const shadow    = document.getElementById('jc-shadow');
-    const bubble    = document.getElementById('jazzycat-bubble');
-    const helper    = document.getElementById('jazzycat-helper');
-    const launcher  = document.getElementById('jazzycat-launcher');
-    const log       = document.getElementById('jc-log');
-    const input     = document.getElementById('jc-input');
-    const send      = document.getElementById('jc-send');
-    const closeBtn  = document.getElementById('jc-close');
+    const pet = document.getElementById('jazzycat-pet');
+    const hitbox = document.getElementById('jazzycat-hitbox');
+    const shadow = document.getElementById('jc-shadow');
+    const bubble = document.getElementById('jazzycat-bubble');
+    const helper = document.getElementById('jazzycat-helper');
+    const launcher = document.getElementById('jazzycat-launcher');
+    const log = document.getElementById('jc-log');
+    const input = document.getElementById('jc-input');
+    const send = document.getElementById('jc-send');
+    const closeBtn = document.getElementById('jc-close');
     const statusDot = document.getElementById('jc-status-dot');
     const statusTxt = document.getElementById('jc-status-text');
-    const history = [];
-    let typingEl = null;
-    let lastBubbleTimer = null;
-    let isThinking = false;
+    let typingEl = null, lastBubbleTimer = null, isThinking = false;
 
-    async function loadJson(path){
-      const res = await fetch(path, { cache:'no-store' });
-      if(!res.ok) throw new Error('Failed to load ' + path);
-      return await res.json();
-    }
-    function escapeHtml(text){
-      return String(text || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-    }
-    function normalizeText(text){
-      return String(text || '').toLowerCase().replace(/[^\w\s&-]/g, ' ').replace(/\s+/g, ' ').trim();
-    }
+    async function loadJson(path){ const res = await fetch(path, { cache:'no-store' }); if(!res.ok) throw new Error('Failed to load ' + path); return await res.json(); }
+    function escapeHtml(text){ return String(text || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+    function normalizeText(text){ return String(text || '').toLowerCase().replace(/[^\w\s&-]/g,' ').replace(/\s+/g,' ').trim(); }
     function tokenSet(text){ return new Set(normalizeText(text).split(' ').filter(Boolean)); }
-    function setStatus(mode, text){
-      statusTxt.textContent = text;
-      statusDot.className = 'jc-status-dot ' + (mode === 'thinking' ? 'thinking' : 'ready');
-      document.getElementById('topStatus').textContent = mode === 'thinking' ? 'THINKING' : 'ONLINE';
-    }
-    function addLog(role, html){
-      const div = document.createElement('div');
-      div.className = 'jc-msg ' + role;
-      div.innerHTML = html;
-      log.appendChild(div);
-      log.scrollTop = log.scrollHeight;
-      return div;
-    }
+    function setStatus(mode, text){ statusTxt.textContent = text; statusDot.className = 'jc-status-dot ' + (mode === 'thinking' ? 'thinking' : 'ready'); document.getElementById('topStatus').textContent = mode === 'thinking' ? 'THINKING' : 'ONLINE'; }
+    function addLog(role, html){ const div = document.createElement('div'); div.className = 'jc-msg ' + role; div.innerHTML = html; log.appendChild(div); log.scrollTop = log.scrollHeight; return div; }
     function showTyping(){ typingEl = addLog('typing', 'JazzyCat is thinking<span class="jc-cursor"></span>'); }
     function removeTyping(){ if(typingEl){ typingEl.remove(); typingEl = null; } }
-    function say(text, stayOpen){
-      bubble.textContent = text;
-      bubble.classList.add('show');
-      positionBubble();
-      if(lastBubbleTimer) clearTimeout(lastBubbleTimer);
-      if(!stayOpen){ lastBubbleTimer = setTimeout(() => bubble.classList.remove('show'), 4200); }
-    }
-    function emitNotes(count){
-      const rect = pet.getBoundingClientRect();
-      for(let i=0;i<count;i++){
-        const n = document.createElement('div');
-        n.className = 'jc-note';
-        n.textContent = i % 2 ? '♪' : '♫';
-        n.style.left = (rect.left + rect.width * 0.68) + 'px';
-        n.style.top = (rect.top + 12) + 'px';
-        n.style.setProperty('--dx', (20 + Math.random() * 52) + 'px');
-        n.style.setProperty('--dy', (-20 - Math.random() * 64) + 'px');
-        document.body.appendChild(n);
-        setTimeout(() => n.remove(), 1500);
-      }
-    }
-    function formatDate(dateString){
-      if(!dateString) return '';
-      const d = new Date(dateString + 'T12:00:00');
-      if(Number.isNaN(d.getTime())) return dateString;
-      return d.toLocaleDateString('en-US', { month:'short', day:'numeric' });
-    }
-    function formatDaySchedule(entry){
-      if(!entry || !entry.acts || !entry.acts.length) return null;
-      const lines = entry.acts.map(act => `${escapeHtml(act.start_time)} — ${escapeHtml(act.artist_name)}`);
-      return `<strong>JazzyCat:</strong> <strong>${escapeHtml(entry.day)}, ${escapeHtml(entry.date)}</strong><br><br>${lines.join('<br>')}`;
-    }
-    function availableArtistLinks(artist){
-      if(!artist || !artist.links) return [];
-      return Object.entries(artist.links).filter(([, value]) => typeof value === 'string' && value.trim()).map(([key, value]) => ({ key, value }));
-    }
-    function formatLinkLabel(key){ return key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()); }
+    function say(text, stayOpen){ bubble.textContent = text; bubble.classList.add('show'); positionBubble(); if(lastBubbleTimer) clearTimeout(lastBubbleTimer); if(!stayOpen){ lastBubbleTimer = setTimeout(() => bubble.classList.remove('show'), 4200); } }
+    function emitNotes(count){ const rect = pet.getBoundingClientRect(); for(let i=0;i<count;i++){ const n = document.createElement('div'); n.className = 'jc-note'; n.textContent = i % 2 ? '♪' : '♫'; n.style.left = (rect.left + rect.width * 0.68) + 'px'; n.style.top = (rect.top + 12) + 'px'; n.style.setProperty('--dx', (20 + Math.random() * 52) + 'px'); n.style.setProperty('--dy', (-20 - Math.random() * 64) + 'px'); document.body.appendChild(n); setTimeout(() => n.remove(), 1500); } }
+    function formatDate(dateString){ const d = new Date(dateString + 'T12:00:00'); if(Number.isNaN(d.getTime())) return dateString || ''; return d.toLocaleDateString('en-US', { month:'short', day:'numeric' }); }
     function findScheduleByDateOrDay(question){
       if(!state.schedule || !Array.isArray(state.schedule.schedule)) return null;
       const q = normalizeText(question);
-      const firstDate = state.schedule.schedule[1]?.date || state.schedule.schedule[0]?.date || null;
-      if((q.includes('tonight') || q.includes('today')) && firstDate){
-        return state.schedule.schedule.find(d => d.date === firstDate) || state.schedule.schedule[0] || null;
-      }
+      const firstDate = state.schedule.schedule[0]?.date || null;
+      if((q.includes('tonight') || q.includes('today')) && firstDate) return state.schedule.schedule.find(d => d.date === firstDate) || state.schedule.schedule[0] || null;
       const days = ['wednesday','thursday','friday','saturday','sunday','monday','tuesday'];
       for(const day of days){ if(q.includes(day)) return state.schedule.schedule.find(d => normalizeText(d.day) === day) || null; }
-      const dateMatch = String(question).match(/\d{4}-\d{2}-\d{2}/);
-      if(dateMatch) return state.schedule.schedule.find(d => d.date === dateMatch[0]) || null;
+      const dateMatch = String(question).match(/\d{4}-\d{2}-\d{2}/); if(dateMatch) return state.schedule.schedule.find(d => d.date === dateMatch[0]) || null;
       return null;
     }
     function findArtistByQuestion(question){
       const q = normalizeText(question); const artistList = state.artists?.artists || []; let best = null; let bestLen = 0;
-      artistList.forEach(artist => {
-        const variants = [artist.artist_name, ...(artist.aliases || [])];
-        variants.forEach(v => {
-          const n = normalizeText(v);
-          if(n && q.includes(n) && n.length > bestLen){ best = artist; bestLen = n.length; }
-        });
-      });
+      artistList.forEach(artist => { [artist.artist_name, ...(artist.aliases || [])].forEach(v => { const n = normalizeText(v); if(n && q.includes(n) && n.length > bestLen){ best = artist; bestLen = n.length; } }); });
       return best;
     }
-    function findArtistInSchedule(question){
-      const q = normalizeText(question); let best = null; let bestLen = 0;
-      (state.schedule?.schedule || []).forEach(day => {
-        (day.acts || []).forEach(act => {
-          const n = normalizeText(act.artist_name);
-          if(n && q.includes(n) && n.length > bestLen){ best = { day, act }; bestLen = n.length; }
-        });
-      });
-      return best;
-    }
-    function lookupArtistMetadata(question){
-      const byArtist = findArtistByQuestion(question);
-      if(byArtist) return byArtist;
-      const scheduled = findArtistInSchedule(question);
-      if(scheduled) return findArtistByQuestion(scheduled.act.artist_name);
+    function availableArtistLinks(artist){ if(!artist || !artist.links) return []; return Object.entries(artist.links).filter(([, value]) => typeof value === 'string' && value.trim()).map(([key, value]) => ({ key, value })); }
+    function formatLinkLabel(key){ return key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()); }
+    function faqScore(question, item){ const q = normalizeText(question); const qTokens = tokenSet(question); let score = 0; (item.keywords || []).forEach(keyword => { const k = normalizeText(keyword); if(!k) return; if(q.includes(k)) score += Math.max(3, k.split(' ').length * 2); const parts = k.split(' ').filter(Boolean); score += parts.filter(part => qTokens.has(part)).length; }); const nq = normalizeText(item.question || ''); if(nq && q.includes(nq)) score += 8; return score; }
+    function findFaqAnswer(question){ const faq = state.knowledge?.faq || []; let best = null; let bestScore = 0; faq.forEach(item => { const score = faqScore(question, item); if(score > bestScore){ best = item; bestScore = score; } }); return bestScore > 1 ? best : null; }
+    function jazzyWrap(text){ return `<strong>JazzyCat:</strong> ${text}`; }
+    function handleDirectProgramQuestions(question){
+      const q = normalizeText(question), recurring = state.knowledge?.recurring_programming || {};
+      if(q.includes('happy hour')) return { answer: jazzyWrap(escapeHtml(recurring.happy_hour?.short_answer || '')), bubble:'Thursday happy hour loaded.', source:recurring.happy_hour?.source || 'Local knowledge JSON' };
+      if(q.includes('bloody mary')) return { answer: jazzyWrap(escapeHtml(recurring.bloody_mary_brunch?.short_answer || '')), bubble:'Sunday brunch data loaded.', source:recurring.bloody_mary_brunch?.source || 'Local knowledge JSON' };
+      if(q.includes('paint and sip') || q.includes('paint & sip')) return { answer: jazzyWrap(escapeHtml(recurring.paint_and_sip?.short_answer || '')), bubble:'Paint and Sip route loaded.', source:recurring.paint_and_sip?.source || 'Local knowledge JSON' };
+      if(q.includes('private event') || q.includes('book the venue')) return { answer: jazzyWrap(escapeHtml(recurring.private_events?.short_answer || '')), bubble:'Booking route loaded.', source:recurring.private_events?.source || 'Local knowledge JSON' };
       return null;
     }
-    function faqScore(question, item){
-      const q = normalizeText(question); const qTokens = tokenSet(question); let score = 0;
-      (item.keywords || []).forEach(keyword => {
-        const k = normalizeText(keyword); if(!k) return;
-        if(q.includes(k)) score += Math.max(3, k.split(' ').length * 2);
-        const parts = k.split(' ').filter(Boolean);
-        const overlap = parts.filter(part => qTokens.has(part)).length;
-        score += overlap;
-      });
-      const normalizedQuestion = normalizeText(item.question || '');
-      if(normalizedQuestion && q.includes(normalizedQuestion)) score += 8;
-      return score;
+    function findCocktail(question){
+      const q = normalizeText(question); const drinks = state.knowledge?.menu?.signature_cocktails || []; let best=null, bestLen=0;
+      drinks.forEach(drink => { [drink.name, ...(drink.keywords || [])].forEach(v => { const n = normalizeText(v); if(n && q.includes(n) && n.length > bestLen){ best=drink; bestLen=n.length; } }); });
+      return best;
     }
-    function findFaqAnswer(question){
-      const faq = state.knowledge?.faq || []; let best = null; let bestScore = 0;
-      faq.forEach(item => { const score = faqScore(question, item); if(score > bestScore){ best = item; bestScore = score; } });
-      return bestScore > 1 ? best : null;
-    }
-    function jazzyWrap(text){ return `<strong>JazzyCat:</strong> ${text}`; }
-    function handleGenreQuestion(question){
-      const artist = lookupArtistMetadata(question);
-      if(!artist) return null;
-      if(artist.genres && artist.genres.length){
-        const genres = artist.genres.join(', ');
-        const summary = artist.style_summary ? `<br><br>${escapeHtml(artist.style_summary)}` : '';
-        return { answer: jazzyWrap(`${escapeHtml(artist.artist_name)} is tagged here as ${escapeHtml(genres)}.${summary}`), bubble:`${artist.artist_name}: ${genres}.`, source:'Local artist metadata JSON' };
+    function handleMenuQuestion(question){
+      const q = normalizeText(question);
+      if(q.includes('thc seltzer')) return { answer: jazzyWrap('BMC highlights THC seltzers as part of the house menu. Availability can vary.'), bubble:'THC seltzers are on the menu.', source:'User-provided drink menu detail' };
+      if(q.includes('craft beer') || q.includes('beer')) return { answer: jazzyWrap('BMC highlights craft beer for guests who want a cold, straightforward option before or between sets.'), bubble:'Craft beer is on the menu.', source:'User-provided drink menu detail' };
+      if(q.includes('cocktail') || q.includes('drink') || q.includes('menu')){
+        const drink = findCocktail(question);
+        if(drink) return { answer: jazzyWrap(`<strong>${escapeHtml(drink.name)}</strong><br><br>${escapeHtml(drink.brief)}<br><br>${escapeHtml(drink.spirit_options || '')}`), bubble:`${drink.name} loaded.`, source:'User-provided signature cocktail description' };
+        return { answer: jazzyWrap('BMC highlights specialty craft cocktails, THC seltzers, craft beer, and patio backbar chicken paninis.'), bubble:'House menu loaded.', source:'User-provided drink menu detail' };
       }
-      return { answer: jazzyWrap(`I found ${escapeHtml(artist.artist_name)}, but no verified genre profile is loaded for that artist yet.`), bubble:`No verified genre loaded yet.`, source:'Local artist metadata JSON' };
-    }
-    function handleArtistLinkQuestion(question){
-      const artist = lookupArtistMetadata(question); if(!artist) return null;
-      const links = availableArtistLinks(artist);
-      if(!links.length){ return { answer: jazzyWrap(`I found ${escapeHtml(artist.artist_name)}, but no verified artist links are loaded for that artist yet.`), bubble:`No links loaded for that act yet.`, source:'Local artist metadata JSON' }; }
-      const html = links.map(link => `<a href="${escapeHtml(link.value)}" target="_blank" rel="noopener noreferrer" style="color:#79ffcb">${escapeHtml(formatLinkLabel(link.key))}</a>`).join('<br>');
-      return { answer: jazzyWrap(`${escapeHtml(artist.artist_name)}<br><br>${html}`), bubble:`Links ready.`, source:'Local artist metadata JSON' };
-    }
-    function handleArtistTimeQuestion(question){
-      const hit = findArtistInSchedule(question); if(!hit) return null;
-      return { answer: jazzyWrap(`${escapeHtml(hit.act.artist_name)} is listed for ${escapeHtml(hit.day.day)}, ${escapeHtml(hit.day.date)} at ${escapeHtml(hit.act.start_time)}.`), bubble:`${hit.act.artist_name} is on at ${hit.act.start_time}.`, source:'Current public schedule snapshot' };
-    }
-    function handleNightGenreQuestion(question){
-      const entry = findScheduleByDateOrDay(question); if(!entry) return null;
-      const summaries = [];
-      (entry.acts || []).forEach(act => {
-        const artist = findArtistByQuestion(act.artist_name);
-        if(artist && artist.genres && artist.genres.length){ summaries.push(`${escapeHtml(act.artist_name)}: ${escapeHtml(artist.genres.join(', '))}`); }
-      });
-      if(summaries.length){ return { answer: jazzyWrap(`<strong>${escapeHtml(entry.day)}, ${escapeHtml(entry.date)}</strong><br><br>${summaries.join('<br>')}`), bubble:`Loaded the genres for that night.`, source:'Artist metadata + current schedule snapshot' }; }
-      return { answer: jazzyWrap(`I found the schedule for ${escapeHtml(entry.day)}, ${escapeHtml(entry.date)}, but I do not have verified genre data loaded for those acts yet.`), bubble:`Schedule found, genres incomplete.`, source:'Current public schedule snapshot' };
-    }
-    function handleDirectProgramQuestions(question){
-      const q = normalizeText(question); const recurring = state.knowledge?.recurring_programming || {};
-      if(q.includes('happy hour')) return { answer: jazzyWrap(escapeHtml(recurring.happy_hour?.short_answer || '')), bubble:'Thursday happy hour, darling.', source: recurring.happy_hour?.source || 'Local JazzyCat knowledge JSON' };
-      if(q.includes('bloody mary')) return { answer: jazzyWrap(escapeHtml(recurring.bloody_mary_brunch?.short_answer || '')), bubble:'Sunday brunch data loaded.', source: recurring.bloody_mary_brunch?.source || 'Local JazzyCat knowledge JSON' };
-      if(q.includes('paint and sip') || q.includes('paint & sip')) return { answer: jazzyWrap(escapeHtml(recurring.paint_and_sip?.short_answer || '')), bubble:'Paint and Sip route loaded.', source: recurring.paint_and_sip?.source || 'Local JazzyCat knowledge JSON' };
-      if(q.includes('private event') || q.includes('book the venue')) return { answer: jazzyWrap(escapeHtml(recurring.private_events?.short_answer || '')), bubble:'Booking route loaded.', source: recurring.private_events?.source || 'Local JazzyCat knowledge JSON' };
       return null;
     }
     function handleLocalQuestion(question){
       const q = normalizeText(question);
       if(/play trumpet|play music|trumpet/.test(q)) return { answer: jazzyWrap('Toot toot. I would play you something brassy, but this machine only emits dramatic confidence and a few floating notes.'), bubble:'♪ Toot toot. ♪', source:'JazzyCat local personality layer' };
-      if(q.includes('genre') || q.includes('what kind of music') || q.includes('what style')){
-        const genreResponse = handleGenreQuestion(question); if(genreResponse) return genreResponse;
-        if(/wednesday|thursday|friday|saturday|sunday|tonight|today/.test(q)){
-          const nightGenres = handleNightGenreQuestion(question); if(nightGenres) return nightGenres;
-        }
-      }
-      if(q.includes('link') || q.includes('website') || q.includes('instagram') || q.includes('youtube') || q.includes('spotify') || q.includes('facebook')){
-        const artistLinks = handleArtistLinkQuestion(question); if(artistLinks) return artistLinks;
-      }
-      if(q.includes('when is') || q.includes('what time') || q.includes('what night') || q.includes('when does')){
-        const artistTime = handleArtistTimeQuestion(question); if(artistTime) return artistTime;
-      }
+      const menuReply = handleMenuQuestion(question); if(menuReply) return menuReply;
       if(/who.*play|who.*playing|what.*happening|what.*on|schedule|tonight|today/.test(q)){
         const dayEntry = findScheduleByDateOrDay(question);
-        if(dayEntry) return { answer: formatDaySchedule(dayEntry), bubble:`I loaded ${dayEntry.day}.`, source:'Current public schedule snapshot' };
+        if(dayEntry){
+          const lines = (dayEntry.acts || []).map(act => `${escapeHtml(act.start_time)} — ${escapeHtml(act.artist_name)}`);
+          return { answer: jazzyWrap(`<strong>${escapeHtml(dayEntry.day)}, ${escapeHtml(dayEntry.date)}</strong><br><br>${lines.join('<br>')}`), bubble:`I loaded ${dayEntry.day}.`, source:'Current public schedule snapshot' };
+        }
+      }
+      if(q.includes('genre') || q.includes('what kind of music')){
+        const artist = findArtistByQuestion(question);
+        if(artist && artist.genres?.length) return { answer: jazzyWrap(`${escapeHtml(artist.artist_name)} is tagged here as ${escapeHtml(artist.genres.join(', '))}.`), bubble:`${artist.artist_name}: ${artist.genres.join(', ')}.`, source:'Local artist metadata JSON' };
+      }
+      if(q.includes('link') || q.includes('website') || q.includes('instagram') || q.includes('youtube') || q.includes('spotify') || q.includes('facebook')){
+        const artist = findArtistByQuestion(question); const links = availableArtistLinks(artist);
+        if(artist && links.length){ const html = links.map(link => `<a href="${escapeHtml(link.value)}" target="_blank" rel="noopener noreferrer" style="color:#79ffcb">${escapeHtml(formatLinkLabel(link.key))}</a>`).join('<br>'); return { answer: jazzyWrap(`${escapeHtml(artist.artist_name)}<br><br>${html}`), bubble:'Links ready.', source:'Local artist metadata JSON' }; }
       }
       const directProgram = handleDirectProgramQuestions(question); if(directProgram && directProgram.answer) return directProgram;
-      const faq = findFaqAnswer(question);
-      if(faq) return { answer: jazzyWrap(escapeHtml(faq.answer).replace(/\n/g,'<br>')), bubble:(faq.question || 'Loaded answer.').slice(0,72), source: faq.source || 'Local JazzyCat knowledge JSON' };
+      const faq = findFaqAnswer(question); if(faq) return { answer: jazzyWrap(escapeHtml(faq.answer).replace(/\n/g,'<br>')), bubble:(faq.question || 'Loaded answer.').slice(0,70), source:faq.source || 'Local JazzyCat knowledge JSON' };
       return { answer: jazzyWrap(escapeHtml(state.knowledge?.routing?.unknown_fallback || 'I do not have that answer loaded yet.')), bubble:'That fact is not loaded yet.', source:'Local JazzyCat knowledge JSON' };
     }
 
     function renderFacts(){
-      const k = state.knowledge || {}; const history = k.history || {}; const food = k.food || {};
+      const k = state.knowledge || {}, history = k.history || {}, food = k.food || {}, menu = k.menu || {};
       const facts = [
-        {title:'Founded', body: history.founded ? `Opened in ${history.founded}.` : ''},
-        {title:'Cover', body: history.cover_policy || ''},
-        {title:'Previous Name', body: history.previous_identity || ''},
-        {title:'Haunted', body: history.haunted_tours || ''},
-        {title:'Patio Backbar', body: food.patio_backbar || ''},
-        {title:'Location', body: k.site?.address || ''}
+        { title:'Founded', body: history.founded ? `Opened in ${history.founded}.` : '' },
+        { title:'Cover', body: history.cover_policy || '' },
+        { title:'Haunted', body: history.haunted_tours || '' },
+        { title:'Patio Backbar', body: food.patio_backbar || '' },
+        { title:'House Menu', body: menu.headline || '' },
+        { title:'Location', body: k.site?.address || '' }
       ].filter(item => item.body);
       const grid = document.getElementById('factGrid'); grid.innerHTML = '';
-      facts.forEach(item => {
-        const card = document.createElement('div'); card.className = 'fact-card';
-        card.innerHTML = `<strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.body)}</span>`;
-        grid.appendChild(card);
-      });
+      facts.forEach(item => { const card = document.createElement('div'); card.className = 'fact-card'; card.innerHTML = `<strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.body)}</span>`; grid.appendChild(card); });
     }
-    function renderSchedule(){
-      const list = document.getElementById('scheduleList'); list.innerHTML = '';
-      (state.schedule?.schedule || []).slice(0,5).forEach(day => {
-        const item = document.createElement('div'); item.className = 'schedule-day';
-        const acts = (day.acts || []).map(act => `<li>${escapeHtml(act.start_time)} — ${escapeHtml(act.artist_name)}</li>`).join('');
-        item.innerHTML = `<strong>${escapeHtml(day.day)} • ${escapeHtml(formatDate(day.date))}</strong><ul>${acts}</ul>`;
-        list.appendChild(item);
-      });
-    }
-    function renderContacts(){
-      const c = state.knowledge?.contacts || {}; const strip = document.getElementById('contactStrip'); strip.innerHTML='';
-      const cards = [
-        {title:'General Events', body:`Email booking and event questions.`, link:c.general_events?.mailto, label:c.general_events?.email || 'Email'},
-        {title:'Private Events Phone', body:`Best for private event booking questions.`, link:c.general_events?.tel, label:c.general_events?.phone || 'Call'},
-        {title:'Paint & Sip', body:`Call or text for registration.`, link:c.paint_and_sip?.tel, label:c.paint_and_sip?.phone || 'Call'}
-      ];
-      cards.forEach(card => {
-        const box = document.createElement('div'); box.className = 'bmc90-contact-box';
-        box.innerHTML = `<strong>${escapeHtml(card.title)}</strong><div class="bmc90-line">${escapeHtml(card.body)}</div><div class="bmc90-line" style="margin-top:8px">${card.link ? `<a href="${escapeHtml(card.link)}">${escapeHtml(card.label)}</a>` : escapeHtml(card.label)}</div>`;
-        strip.appendChild(box);
-      });
+    function renderSchedule(){ const list = document.getElementById('scheduleList'); list.innerHTML = ''; (state.schedule?.schedule || []).slice(0,5).forEach(day => { const item = document.createElement('div'); item.className='schedule-day'; const acts=(day.acts || []).map(act => `<li>${escapeHtml(act.start_time)} — ${escapeHtml(act.artist_name)}</li>`).join(''); item.innerHTML=`<strong>${escapeHtml(day.day)} • ${escapeHtml(formatDate(day.date))}</strong><ul>${acts}</ul>`; list.appendChild(item); }); }
+    function renderContacts(){ const c = state.knowledge?.contacts || {}; const strip = document.getElementById('contactStrip'); strip.innerHTML=''; const cards = [ {title:'General Events', body:'Email booking and event questions.', link:c.general_events?.mailto, label:c.general_events?.email || 'Email'}, {title:'Private Events Phone', body:'Best for private event booking questions.', link:c.general_events?.tel, label:c.general_events?.phone || 'Call'}, {title:'Paint & Sip', body:'Call or text for registration.', link:c.paint_and_sip?.tel, label:c.paint_and_sip?.phone || 'Call'} ]; cards.forEach(card => { const box = document.createElement('div'); box.className='bmc90-contact-box'; box.innerHTML=`<strong>${escapeHtml(card.title)}</strong><div class="bmc90-line">${escapeHtml(card.body)}</div><div class="bmc90-line" style="margin-top:8px">${card.link ? `<a href="${escapeHtml(card.link)}">${escapeHtml(card.label)}</a>` : escapeHtml(card.label)}</div>`; strip.appendChild(box); }); }
+    function renderMenu(){
+      const menu = state.knowledge?.menu || {}; document.getElementById('menuHeadline').textContent = menu.headline || ''; document.getElementById('menuMarketing').textContent = menu.marketing_line || ''; const mg = document.getElementById('menuGrid'); mg.innerHTML=''; (menu.categories || []).forEach(cat => { const div = document.createElement('div'); div.className='menu-blurb'; div.innerHTML = `<strong>${escapeHtml(cat.name)}</strong><span>${escapeHtml(cat.description)}</span>`; mg.appendChild(div); }); const cg = document.getElementById('cocktailGrid'); cg.innerHTML=''; (menu.signature_cocktails || []).forEach(drink => { const div = document.createElement('div'); div.className='cocktail-card'; div.innerHTML = `<strong>${escapeHtml(drink.name)}</strong><span>${escapeHtml(drink.brief)}</span>${drink.spirit_options ? `<em>${escapeHtml(drink.spirit_options)}</em>` : ''}`; cg.appendChild(div); });
     }
     function renderQuicks(){
-      const quickWrap = document.getElementById('jc-quick'); quickWrap.innerHTML = '';
-      (state.knowledge?.quick_questions || []).slice(0,6).forEach(q => {
-        const btn = document.createElement('button'); btn.className='jc-q'; btn.type='button'; btn.textContent=q; btn.dataset.q=q;
-        btn.addEventListener('click', ()=> ask(q)); quickWrap.appendChild(btn);
-      });
-      const list = document.getElementById('quickList'); list.innerHTML = '';
-      (state.knowledge?.quick_questions || []).slice(0,5).forEach(q => {
-        const li = document.createElement('li'); li.textContent = q; list.appendChild(li);
-      });
+      const quickWrap = document.getElementById('jc-quick'); quickWrap.innerHTML=''; (state.knowledge?.quick_questions || []).slice(0,6).forEach(q => { const btn=document.createElement('button'); btn.className='jc-q'; btn.type='button'; btn.textContent=q; btn.addEventListener('click', ()=> ask(q)); quickWrap.appendChild(btn); });
+      const list = document.getElementById('quickList'); list.innerHTML=''; (state.knowledge?.quick_questions || []).slice(0,5).forEach(q => { const li=document.createElement('li'); li.textContent=q; list.appendChild(li); });
     }
     function renderUi(){
-      const k = state.knowledge;
-      document.getElementById('badgeLine').textContent = k.site.badge_line || k.site.name;
-      document.getElementById('heroSummary').textContent = k.site.core_summary || k.site.summary;
-      document.getElementById('heroNote').textContent = k.site.house_atmosphere || k.site.summary;
-      document.getElementById('posterCaption').textContent = k.site.poster_caption || 'Mardi Gras shell loaded.';
-      document.getElementById('sidebarSummary').textContent = k.site.sidebar_summary || k.site.summary;
-      document.getElementById('eventsChip').href = k.contacts?.general_events?.mailto || 'mailto:BMC@marullomgmt.com';
-      document.getElementById('eventsChip').textContent = 'Private Events: ' + (k.contacts?.general_events?.phone || 'Contact');
-      document.getElementById('paintChip').href = k.contacts?.paint_and_sip?.tel || 'tel:+15042818736';
-      document.getElementById('paintChip').textContent = 'Paint & Sip: ' + (k.contacts?.paint_and_sip?.phone || 'Contact');
-      document.getElementById('jc-intro').innerHTML = '&gt; JazzyCat online.<br>&gt; ' + escapeHtml((k.assistant?.identity_lines || []).join(' ')).replace(/\n/g,'<br>');
-      input.placeholder = k.ui?.input_placeholder || 'Ask JazzyCat something.';
-      send.textContent = k.ui?.send_label || 'Ask';
-      renderFacts(); renderSchedule(); renderContacts(); renderQuicks();
-      addLog('bot', '<strong>JazzyCat:</strong> Meow. Ask me about the club history, whether there is a cover, the haunted angle, the patio backbar, tonight’s music, or how to book the room.');
-      setStatus('ready', 'Ready');
-    }
-    async function init(){
-      try{
-        setStatus('thinking', 'Loading local files');
-        const [knowledge, schedule, artists] = await Promise.all([
-          loadJson('./data/jazzycat-knowledge.json'),
-          loadJson('./data/jazzycat-current-schedule.json').catch(() => null),
-          loadJson('./data/jazzycat-artists.json').catch(() => null)
-        ]);
-        state.knowledge = knowledge; state.schedule = schedule; state.artists = artists; renderUi();
-        document.querySelectorAll('.corner-cat').forEach(cat => cat.addEventListener('click', () => ask(cat.getAttribute('data-prompt') || 'What is happening tonight?')));
-      }catch(err){
-        addLog('bot', '<strong>JazzyCat:</strong> I could not load my knowledge files.');
-        setStatus('ready', 'Error');
-        console.error(err);
-      }
-    }
-    async function ask(userText){
-      const q = String(userText || '').trim(); if(!q || isThinking) return;
-      isThinking = true; input.disabled = true; send.disabled = true; setStatus('thinking', 'Thinking…');
-      history.push({ role:'user', content:q });
-      addLog('user', 'You: ' + escapeHtml(q)); showTyping(); emitNotes(2);
-      try{
-        const reply = handleLocalQuestion(q);
-        await new Promise(r => setTimeout(r, 220));
-        removeTyping();
-        addLog('bot', reply.answer + (reply.source ? `<br><span style="color:#79ffcb">[${escapeHtml(reply.source)}]</span>` : ''));
-        if(reply.bubble) say(reply.bubble); else say('Loaded.');
-        if(/trumpet|play|music|jump|dance/i.test(q)) emitNotes(5);
-        history.push({ role:'assistant', content: reply.answer.replace(/<[^>]+>/g,' ') });
-        setStatus('ready', 'Ready');
-      }catch(err){
-        removeTyping();
-        addLog('bot', '<strong>JazzyCat:</strong> The jazz line went quiet.');
-        say('The jazz line went quiet.');
-        setStatus('ready', 'Error — try again');
-      }finally{
-        isThinking = false; input.disabled = false; send.disabled = false; input.focus();
-      }
-    }
+      const k = state.knowledge; document.getElementById('badgeLine').textContent = k.site.badge_line || k.site.name; document.getElementById('heroSummary').textContent = k.site.core_summary || k.site.summary; document.getElementById('heroNote').textContent = k.site.house_atmosphere || k.site.summary; document.getElementById('posterCaption').textContent = k.site.poster_caption || 'Mardi Gras shell loaded.'; document.getElementById('sidebarSummary').textContent = k.site.sidebar_summary || k.site.summary; document.getElementById('marketingLine').textContent = k.site.marketing_line || ''; document.getElementById('eventsChip').href = k.contacts?.general_events?.mailto || 'mailto:BMC@marullomgmt.com'; document.getElementById('eventsChip').textContent = 'Private Events: ' + (k.contacts?.general_events?.phone || 'Contact'); document.getElementById('paintChip').href = k.contacts?.paint_and_sip?.tel || 'tel:+15042818736'; document.getElementById('paintChip').textContent = 'Paint & Sip: ' + (k.contacts?.paint_and_sip?.phone || 'Contact'); document.getElementById('jc-intro').innerHTML = '&gt; JazzyCat online.<br>&gt; ' + escapeHtml((k.assistant?.identity_lines || []).join(' ')).replace(/\n/g,'<br>'); input.placeholder = k.ui?.input_placeholder || 'Ask JazzyCat something.'; send.textContent = k.ui?.send_label || 'Ask'; renderFacts(); renderSchedule(); renderContacts(); renderMenu(); renderQuicks(); addLog('bot', '<strong>JazzyCat:</strong> Meow. Ask me about the club history, whether there is a cover, the haunted angle, patio backbar paninis, house cocktails, THC seltzers, craft beer, tonight’s music, or how to book the room.'); setStatus('ready', 'Ready'); }
+    async function init(){ try{ setStatus('thinking', 'Loading local files'); const [knowledge, schedule, artists] = await Promise.all([loadJson('./data/jazzycat-knowledge.json'), loadJson('./data/jazzycat-current-schedule.json').catch(() => null), loadJson('./data/jazzycat-artists.json').catch(() => null)]); state.knowledge=knowledge; state.schedule=schedule; state.artists=artists; renderUi(); document.querySelectorAll('.corner-cat').forEach(cat => cat.addEventListener('click', () => ask(cat.getAttribute('data-prompt') || 'What is happening tonight?'))); } catch(err){ addLog('bot', '<strong>JazzyCat:</strong> I could not load my knowledge files.'); setStatus('ready', 'Error'); console.error(err); } }
+    async function ask(userText){ const q = String(userText || '').trim(); if(!q || isThinking) return; isThinking = true; input.disabled = true; send.disabled = true; setStatus('thinking', 'Thinking…'); addLog('user', 'You: ' + escapeHtml(q)); showTyping(); emitNotes(2); try{ const reply = handleLocalQuestion(q); await new Promise(r => setTimeout(r, 220)); removeTyping(); addLog('bot', reply.answer + (reply.source ? `<br><span style="color:#79ffcb">[${escapeHtml(reply.source)}]</span>` : '')); say(reply.bubble || 'Loaded.'); if(/trumpet|play|music|jump|dance/i.test(q)) emitNotes(5); setStatus('ready', 'Ready'); } catch(err){ removeTyping(); addLog('bot', '<strong>JazzyCat:</strong> The jazz line went quiet.'); say('The jazz line went quiet.'); setStatus('ready', 'Error — try again'); } finally{ isThinking = false; input.disabled = false; send.disabled = false; input.focus(); } }
     function submitQuestion(){ const q = input.value.trim(); if(!q || isThinking) return; input.value=''; ask(q); }
 
-    let helperOpen = false;
-    function openHelper(focusInput){ helper.classList.remove('is-hidden'); launcher.classList.remove('show'); helperOpen = true; if(focusInput) setTimeout(() => input.focus(), 20); }
-    function closeHelper(){ helper.classList.add('is-hidden'); launcher.classList.add('show'); helperOpen = false; }
+    let helperOpen=false;
+    function openHelper(focusInput){ helper.classList.remove('is-hidden'); launcher.classList.remove('show'); helperOpen=true; if(focusInput) setTimeout(() => input.focus(), 20); }
+    function closeHelper(){ helper.classList.add('is-hidden'); launcher.classList.add('show'); helperOpen=false; }
 
-    let x = 36, y = 120, vx = 1.6, vy = 1.15, phase = 0, dragging = false, movedDuringDrag = false, dragDX = 0, dragDY = 0, lastClickTime = 0;
-    function clamp(v, mn, mx){ return Math.max(mn, Math.min(mx, v)); }
-    function petBounds(){ const w = pet.offsetWidth || 118; const h = pet.offsetHeight || 106; return { maxX: Math.max(0, window.innerWidth - w - 6), maxY: Math.max(0, window.innerHeight - h - 6) }; }
-    function positionBubble(){
-      if(!bubble.classList.contains('show')) return;
-      const pr = pet.getBoundingClientRect(); const bw = bubble.offsetWidth || 220; let bx = pr.left + pr.width * 0.15; let by = pr.top - 72;
-      if(bx + bw > window.innerWidth - 10) bx = window.innerWidth - bw - 10;
-      if(bx < 10) bx = 10;
-      if(by < 8) by = pr.bottom + 10;
-      bubble.style.left = bx + 'px'; bubble.style.top = by + 'px';
-    }
-    function placePet(){
-      const bob = Math.sin(phase) * 3.8;
-      pet.style.transform = 'translate3d(' + x + 'px,' + (y + bob) + 'px,0) scaleX(' + (vx < 0 ? -1 : 1) + ')';
-      const ss = 0.88 + ((Math.sin(phase) + 1) * 0.06);
-      shadow.style.transform = 'scaleX(' + ss + ') scaleY(' + (0.9 - Math.sin(phase) * 0.04) + ')';
-      positionBubble();
-    }
-    function animate(){
-      if(!dragging){
-        const b = petBounds(); x += vx; y += vy; phase += 0.11;
-        if(x <= 0 || x >= b.maxX){ vx *= -1; x = clamp(x, 0, b.maxX); emitNotes(1); }
-        if(y <= 0 || y >= b.maxY){ vy *= -1; y = clamp(y, 0, b.maxY); emitNotes(1); }
-        if(Math.random() < 0.0022){ vx += (Math.random() - 0.5) * 0.8; vy += (Math.random() - 0.5) * 0.7; vx = clamp(vx, -2.4, 2.4); vy = clamp(vy, -2.0, 2.0); }
-      } else { phase += 0.16; }
-      placePet(); requestAnimationFrame(animate);
-    }
-
-    function onPointerDown(e){
-      dragging = true; movedDuringDrag = false; const rect = pet.getBoundingClientRect(); dragDX = e.clientX - rect.left; dragDY = e.clientY - rect.top; hitbox.setPointerCapture(e.pointerId);
-    }
-    function onPointerMove(e){
-      if(!dragging) return; const b = petBounds(); x = clamp(e.clientX - dragDX, 0, b.maxX); y = clamp(e.clientY - dragDY, 0, b.maxY); movedDuringDrag = true; placePet();
-    }
-    function onPointerUp(e){ if(!dragging) return; dragging = false; hitbox.releasePointerCapture(e.pointerId); const now = Date.now(); if(!movedDuringDrag || now - lastClickTime < 300){ openHelper(true); say('Ask away, darling.', true); emitNotes(3); } lastClickTime = now; }
-
-    hitbox.addEventListener('pointerdown', onPointerDown);
-    hitbox.addEventListener('pointermove', onPointerMove);
-    hitbox.addEventListener('pointerup', onPointerUp);
-    launcher.addEventListener('click', () => openHelper(true));
-    closeBtn.addEventListener('click', closeHelper);
-    document.getElementById('openHelperBtn').addEventListener('click', () => openHelper(true));
-    send.addEventListener('click', submitQuestion);
-    input.addEventListener('keydown', (e) => { if(e.key === 'Enter'){ e.preventDefault(); submitQuestion(); } });
-    window.addEventListener('resize', () => { const b = petBounds(); x = clamp(x, 0, b.maxX); y = clamp(y, 0, b.maxY); placePet(); });
-
-    const idleLines = [
-      'Ask me what is happening tonight.',
-      'I know where the brunch lives.',
-      'Need the booking route, darling?',
-      'Happy hour? I have your Thursday.',
-      'This old shell still purrs.'
-    ];
-    setInterval(() => {
-      if(helperOpen || dragging || isThinking) return;
-      if(Math.random() < 0.5){ say(idleLines[Math.floor(Math.random()*idleLines.length)]); }
-    }, 7600);
-
+    let x=36,y=120,vx=1.6,vy=1.15,phase=0,dragging=false,movedDuringDrag=false,dragDX=0,dragDY=0,lastClickTime=0;
+    function clamp(v,mn,mx){ return Math.max(mn, Math.min(mx, v)); }
+    function petBounds(){ const w=pet.offsetWidth || 118, h=pet.offsetHeight || 106; return { maxX:Math.max(0, window.innerWidth - w - 6), maxY:Math.max(0, window.innerHeight - h - 6) }; }
+    function positionBubble(){ if(!bubble.classList.contains('show')) return; const pr=pet.getBoundingClientRect(), bw=bubble.offsetWidth || 220; let bx = pr.left + pr.width * 0.15, by = pr.top - 72; if(bx + bw > window.innerWidth - 10) bx = window.innerWidth - bw - 10; if(bx < 10) bx = 10; if(by < 8) by = pr.bottom + 10; bubble.style.left = bx + 'px'; bubble.style.top = by + 'px'; }
+    function placePet(){ const bob = Math.sin(phase) * 3.8; pet.style.transform = 'translate3d(' + x + 'px,' + (y + bob) + 'px,0) scaleX(' + (vx < 0 ? -1 : 1) + ')'; const ss = 0.88 + ((Math.sin(phase) + 1) * 0.06); shadow.style.transform = 'scaleX(' + ss + ') scaleY(' + (0.9 - Math.sin(phase) * 0.04) + ')'; positionBubble(); }
+    function animate(){ if(!dragging){ const b=petBounds(); x += vx; y += vy; phase += 0.11; if(x <= 0 || x >= b.maxX){ vx *= -1; x = clamp(x,0,b.maxX); emitNotes(1);} if(y <= 0 || y >= b.maxY){ vy *= -1; y = clamp(y,0,b.maxY); emitNotes(1);} if(Math.random() < 0.0022){ vx += (Math.random() - 0.5) * 0.8; vy += (Math.random() - 0.5) * 0.7; vx = clamp(vx,-2.4,2.4); vy = clamp(vy,-2.0,2.0); } } else { phase += 0.16; } placePet(); requestAnimationFrame(animate); }
+    function onPointerDown(e){ dragging=true; movedDuringDrag=false; const rect=pet.getBoundingClientRect(); dragDX = e.clientX - rect.left; dragDY = e.clientY - rect.top; hitbox.setPointerCapture(e.pointerId); }
+    function onPointerMove(e){ if(!dragging) return; const b = petBounds(); x = clamp(e.clientX - dragDX, 0, b.maxX); y = clamp(e.clientY - dragDY, 0, b.maxY); movedDuringDrag=true; placePet(); }
+    function onPointerUp(e){ if(!dragging) return; dragging=false; hitbox.releasePointerCapture(e.pointerId); const now = Date.now(); if(!movedDuringDrag || now - lastClickTime < 300){ openHelper(true); say('Ask away, darling.', true); emitNotes(3); } lastClickTime = now; }
+    hitbox.addEventListener('pointerdown', onPointerDown); hitbox.addEventListener('pointermove', onPointerMove); hitbox.addEventListener('pointerup', onPointerUp); launcher.addEventListener('click', () => openHelper(true)); closeBtn.addEventListener('click', closeHelper); document.getElementById('openHelperBtn').addEventListener('click', () => openHelper(true)); send.addEventListener('click', submitQuestion); input.addEventListener('keydown', (e) => { if(e.key === 'Enter'){ e.preventDefault(); submitQuestion(); } }); window.addEventListener('resize', () => { const b = petBounds(); x = clamp(x,0,b.maxX); y = clamp(y,0,b.maxY); placePet(); });
+    const idleLines = ['Ask me what is happening tonight.','Ask me about the house cocktails.','Need the booking route, darling?','Happy hour? I have your Thursday.','This old shell still purrs.'];
+    setInterval(() => { if(helperOpen || dragging || isThinking) return; if(Math.random() < 0.5) say(idleLines[Math.floor(Math.random() * idleLines.length)]); }, 7600);
     animate(); init();
   })();
   </script>
