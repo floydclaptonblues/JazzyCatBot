@@ -1,6 +1,6 @@
 {
-  "version": "2.2.0",
-  "last_updated": "2026-04-09",
+  "version": "3.0.0",
+  "last_updated": "2026-04-10",
   "assistant": {
     "name": "JazzyCat",
     "display_name": "JazzyCat",
@@ -14,16 +14,15 @@
     ],
     "identity_lines": [
       "Hey, I'm JazzyCat \u2014 Balcony Music Club's pixel-house guide.",
-      "Ask me about the club's founding in 2011, the old Matador chapter, the no-cover spirit, haunted-history-tour lore, the patio backbar chicken paninis, tonight's lineup, or how to book the room.",
-      "I answer from the facts loaded into this page and say so clearly when something has not been entered yet."
+      "Ask me about the club's founding in 2011, the no-cover spirit, haunted-history-tour lore, patio backbar chicken paninis, craft cocktails, THC seltzers, craft beer, tonight's lineup, or how to book the room.",
+      "I answer from the facts loaded into this page and say clearly when something has not been entered yet."
     ],
     "rules": [
       "Use only facts loaded from the JSON files on this page unless a separate live search route is connected.",
       "Do not invent prices, times, dates, policies, or artist details.",
-      "If a genre or artist link is not loaded, say that clearly.",
+      "If a genre, artist link, or menu detail is not loaded, say that clearly.",
       "Prefer direct answers first and then give the best contact route when relevant.",
-      "Treat the schedule snapshot as a public-calendar snapshot, not a permanent promise.",
-      "Prefer venue-loaded facts, recurring specials, and current schedule answers before broader FAQ matches."
+      "Treat the schedule snapshot as a public-calendar snapshot, not a permanent promise."
     ]
   },
   "site": {
@@ -33,41 +32,18 @@
     "state": "Louisiana",
     "address": "1331 Decatur St., New Orleans, LA 70116",
     "website": "https://balconymusicclubnola.com/",
-    "summary": "Balcony Music Club is a French Quarter live music room in New Orleans that opened in 2011, carries earlier history as the Matador, and keeps a no-cover, no-charge spirit.",
+    "summary": "Balcony Music Club is a live music room in New Orleans with a no-cover, no-charge spirit, haunted-history-tour lore, a patio backbar, and a craft-focused drink program.",
+    "core_summary": "Founded in 2011. No cover. No charge. Haunted-history-tour energy, a patio backbar serving fresh-made-to-order chicken paninis, and a drink list built around specialty cocktails, THC seltzers, and craft beer.",
+    "house_atmosphere": "NO COVER \u2022 NO CHARGE \u2022 founded 2011 \u2022 haunted bar lore \u2022 patio backbar paninis \u2022 cocktails \u2022 THC seltzers \u2022 craft beer",
+    "badge_line": "Founded 2011 \u2022 No Cover \u2022 No Charge",
+    "poster_caption": "A haunted New Orleans room with live music, marquee glow, no cover, patio backbar paninis, and a house drink list worth asking about.",
+    "sidebar_summary": "Balcony Music Club opened in 2011, keeps a no-cover/no-charge spirit, appears in local haunted-history-tour conversation, serves fresh-made-to-order chicken paninis from the patio backbar, and pours specialty craft cocktails alongside THC seltzers and craft beer.",
+    "marketing_line": "Whether you\u2019re looking for a craft cocktail in New Orleans, a courtyard bar on Frenchmen Street, or the perfect start to your night, BMC is the move.",
     "venue_areas": [
       "courtyard",
       "main stage",
       "balcony bar"
-    ],
-    "public_source_notes": [
-      "WWOZ lists BMC at 1331 Decatur St. in the French Quarter and describes it as a venue showcasing a wide variety of local music.",
-      "NewOrleans.com describes BMC as a popular music venue showcasing up-and-coming musical talent, with blues, jazz, or funk commonly associated with the venue's atmosphere."
-    ],
-    "core_summary": "Opened in 2011. No cover, no charge. Older locals still remember its Matador chapter, and the room has enough ghost-story energy to show up on haunted-history tours.",
-    "house_atmosphere": "No cover, no charge \u2022 founded in 2011 \u2022 haunted-history-tour lore \u2022 patio backbar chicken paninis",
-    "vibe_notes": [
-      "French Quarter live-music energy",
-      "Mardi Gras color and marquee flair",
-      "Courtyard, main stage, and balcony bar flow",
-      "Local music focus with recurring event programming"
-    ],
-    "venue_areas_detail": [
-      {
-        "name": "Courtyard",
-        "description": "The courtyard is one of the highlighted venue areas and part of the private-events footprint loaded into this page."
-      },
-      {
-        "name": "Main Stage",
-        "description": "The main stage is one of the featured performance and event areas referenced in the loaded venue information."
-      },
-      {
-        "name": "Balcony Bar",
-        "description": "The balcony bar is one of the highlighted bookable venue areas included in the current JazzyCat knowledge file."
-      }
-    ],
-    "badge_line": "Founded 2011 \u2022 No Cover \u2022 Haunted Quarter Flavor",
-    "poster_caption": "A haunted French Quarter room with old stories, no cover, and a patio backbar slinging fresh-made-to-order chicken paninis.",
-    "sidebar_summary": "Balcony Music Club opened in 2011, was previously known as the Matador, keeps a no-cover/no-charge spirit, appears in haunted-history-tour conversation, and has a patio backbar known for fresh-made-to-order chicken paninis."
+    ]
   },
   "contacts": {
     "venue_phone_public": {
@@ -155,6 +131,102 @@
       "source": "User-provided recurring programming detail"
     }
   },
+  "history": {
+    "founded": 2011,
+    "cover_policy": "No cover, no charge.",
+    "haunted_tours": "The bar is part of local haunted-bar lore and can be included on haunted history tours in the city.",
+    "source": "User-provided venue history detail"
+  },
+  "food": {
+    "patio_backbar": "The patio backbar serves fresh-made-to-order chicken paninis.",
+    "source": "User-provided venue food detail"
+  },
+  "menu": {
+    "headline": "Specialty craft cocktails, THC seltzers, craft beer, and patio backbar bites.",
+    "categories": [
+      {
+        "name": "Specialty Craft Cocktails",
+        "description": "The signature list leans bright, musical, and New Orleans-night ready without giving away the whole playbook."
+      },
+      {
+        "name": "THC Seltzers",
+        "description": "For guests looking for a mellow canned option alongside the cocktail list. Availability can vary."
+      },
+      {
+        "name": "Craft Beer",
+        "description": "Cold craft selections for beer drinkers who want something easy before or between sets."
+      },
+      {
+        "name": "Patio Backbar",
+        "description": "Fresh-made-to-order chicken paninis from the patio backbar round out the house menu."
+      }
+    ],
+    "signature_cocktails": [
+      {
+        "name": "The BMC",
+        "keywords": [
+          "the bmc",
+          "bmc drink",
+          "house drink"
+        ],
+        "brief": "A cool, bright house cocktail with minty snap, citrus lift, and a playful late-night edge.",
+        "spirit_options": "Available with tequila, vodka, gin, or rum."
+      },
+      {
+        "name": "Etta Jameson",
+        "keywords": [
+          "etta jameson",
+          "jameson drink"
+        ],
+        "brief": "Smooth and expressive with whiskey warmth, soft orchard sweetness, and a tangy finish."
+      },
+      {
+        "name": "Jimi Hendrix Fizz",
+        "keywords": [
+          "jimi hendrix fizz",
+          "hendrix fizz"
+        ],
+        "brief": "Floral, sparkling, and slightly dreamy \u2014 a gin-forward fizz with a polished finish."
+      },
+      {
+        "name": "Uptown Funk",
+        "keywords": [
+          "uptown funk"
+        ],
+        "brief": "Bright, tropical, and punchy with lime-driven freshness and a sunny groove."
+      },
+      {
+        "name": "Muddy Waters",
+        "keywords": [
+          "muddy waters"
+        ],
+        "brief": "Rich, dark, and dessert-leaning with coffeehouse depth and chocolate mood."
+      },
+      {
+        "name": "Billie Holiday",
+        "keywords": [
+          "billie holiday"
+        ],
+        "brief": "Rum-led and fruit-bright with soft tropical sweetness and an easygoing finish."
+      },
+      {
+        "name": "Prince Pimms",
+        "keywords": [
+          "prince pimms",
+          "pimms"
+        ],
+        "brief": "Crisp, cool, and refreshing with garden notes and a lively ginger sparkle."
+      },
+      {
+        "name": "Esplanade Lemonade",
+        "keywords": [
+          "esplanade lemonade"
+        ],
+        "brief": "Pink, juicy, and patio-friendly with berry brightness and a fizzy citrus close."
+      }
+    ],
+    "marketing_line": "Whether you\u2019re looking for a craft cocktail in New Orleans, a courtyard bar on Frenchmen Street, or the perfect start to your night, BMC is the move."
+  },
   "faq": [
     {
       "id": "faq_founded",
@@ -181,18 +253,6 @@
       "source": "User-provided venue policy detail"
     },
     {
-      "id": "faq_matador",
-      "question": "What was here before Balcony Music Club?",
-      "keywords": [
-        "matador",
-        "previous history",
-        "what was here before",
-        "before balcony music club"
-      ],
-      "answer": "Before Balcony Music Club, the venue had an earlier chapter as the Matador.",
-      "source": "User-provided venue history detail"
-    },
-    {
       "id": "faq_haunted",
       "question": "Is Balcony Music Club haunted?",
       "keywords": [
@@ -201,7 +261,7 @@
         "haunted tour",
         "haunted history"
       ],
-      "answer": "Balcony Music Club is part of local haunted-bar lore and is available to tour on haunted history routes in the city.",
+      "answer": "Balcony Music Club is part of local haunted-bar lore and can be toured on haunted-history routes in the city.",
       "source": "User-provided haunted-tour detail"
     },
     {
@@ -218,21 +278,36 @@
       "source": "User-provided venue food detail"
     },
     {
-      "id": "faq_what_is_bmc",
-      "question": "What is Balcony Music Club?",
+      "id": "faq_menu",
+      "question": "What kinds of drinks does BMC have?",
       "keywords": [
-        "what is balcony music club",
-        "what is bmc",
-        "about the club"
+        "drinks",
+        "cocktails",
+        "menu",
+        "craft cocktails",
+        "thc seltzers",
+        "craft beer"
       ],
-      "answer": "Balcony Music Club is a French Quarter venue in New Orleans that showcases a wide variety of local music.",
-      "source": "WWOZ venue page"
+      "answer": "BMC highlights specialty craft cocktails, THC seltzers, craft beer, and patio backbar food.",
+      "source": "User-provided drink menu detail"
     },
     {
-      "id": "faq_where_is_bmc",
+      "id": "faq_marketing",
+      "question": "Why should I start my night at BMC?",
+      "keywords": [
+        "start to your night",
+        "start my night",
+        "why bmc",
+        "craft cocktail in new orleans",
+        "courtyard bar on frenchmen street"
+      ],
+      "answer": "Whether you\u2019re looking for a craft cocktail in New Orleans, a courtyard bar on Frenchmen Street, or the perfect start to your night, BMC is the move.",
+      "source": "User-provided marketing line"
+    },
+    {
+      "id": "faq_where",
       "question": "Where is Balcony Music Club located?",
       "keywords": [
-        "where is bmc",
         "where is balcony music club",
         "address",
         "location",
@@ -242,353 +317,81 @@
       "source": "WWOZ venue page"
     },
     {
-      "id": "faq_neighborhood",
-      "question": "What neighborhood is Balcony Music Club in?",
-      "keywords": [
-        "what neighborhood",
-        "french quarter",
-        "neighborhood"
-      ],
-      "answer": "Balcony Music Club is in the French Quarter.",
-      "source": "WWOZ venue page"
-    },
-    {
-      "id": "faq_venue_phone",
-      "question": "What is the public venue phone number?",
-      "keywords": [
-        "venue phone",
-        "public phone",
-        "club phone",
-        "301-5912"
-      ],
-      "answer": "The public venue phone listed on WWOZ is (504) 301-5912.",
-      "source": "WWOZ venue page"
-    },
-    {
       "id": "faq_live_music_when",
       "question": "When is live music?",
       "keywords": [
-        "when is live music",
-        "music schedule",
-        "live music days",
-        "open to close"
+        "live music",
+        "when is music",
+        "music nights"
       ],
       "answer": "Live music runs every Wednesday through Sunday, open to close.",
       "source": "User-provided recurring programming detail"
     },
     {
-      "id": "faq_brunch_when",
+      "id": "faq_happy_hour",
+      "question": "When is Thursday happy hour?",
+      "keywords": [
+        "happy hour",
+        "thursday happy hour",
+        "4:30",
+        "5:30"
+      ],
+      "answer": "Thursday happy hour runs from 4:30 PM to 5:30 PM with nice cocktail lounge music.",
+      "source": "User-provided recurring programming detail"
+    },
+    {
+      "id": "faq_brunch",
       "question": "When is Bloody Mary brunch?",
       "keywords": [
+        "bloody mary",
         "bloody mary brunch",
-        "brunch hours",
-        "when is brunch",
         "sunday brunch"
       ],
       "answer": "Build Your Own Bloody Mary Sunday Brunch runs every Sunday from noon to 4:00 PM.",
       "source": "User-provided recurring programming detail"
     },
     {
-      "id": "faq_brunch_price",
-      "question": "How much is Bloody Mary brunch?",
-      "keywords": [
-        "bloody mary price",
-        "brunch price",
-        "how much is brunch",
-        "$15",
-        "$10",
-        "refill"
-      ],
-      "answer": "The brunch special is $15, and the refill price is $10.",
-      "source": "User-provided recurring programming detail"
-    },
-    {
-      "id": "faq_brunch_featured",
-      "question": "Is Bloody Mary brunch only available on Sundays?",
-      "keywords": [
-        "featured item",
-        "only available sunday",
-        "sunday only",
-        "only during brunch"
-      ],
-      "answer": "Yes. It is a featured Sunday item and is only available during the Sunday brunch window.",
-      "source": "User-provided recurring programming detail"
-    },
-    {
-      "id": "faq_brunch_description",
-      "question": "What is included in Bloody Mary brunch?",
-      "keywords": [
-        "what is included",
-        "breakfast necessities",
-        "build your own"
-      ],
-      "answer": "The brunch feature is described as Build Your Own Bloody Mary with all the breakfast necessities.",
-      "source": "User-provided recurring programming detail"
-    },
-    {
-      "id": "faq_paint_and_sip_register",
+      "id": "faq_paint",
       "question": "How do I register for Paint and Sip?",
       "keywords": [
         "paint and sip",
         "paint & sip",
         "register",
-        "registration",
         "sign up"
       ],
       "answer": "Call 504-281-8736 for Paint and Sip registration.",
       "source": "User-provided recurring programming detail"
     },
     {
-      "id": "faq_private_events_book",
+      "id": "faq_private",
       "question": "How do I book a private event?",
       "keywords": [
         "book private event",
         "private events",
-        "reservation",
         "reserve the club"
       ],
       "answer": "For private events, email BMC@marullomgmt.com or call 504-428-5494.",
       "source": "User-provided private events contact"
-    },
-    {
-      "id": "faq_private_event_spaces",
-      "question": "What spaces can be booked for private events?",
-      "keywords": [
-        "what spaces",
-        "courtyard",
-        "main stage",
-        "balcony bar",
-        "venue spaces"
-      ],
-      "answer": "The private event spaces highlighted for booking are the courtyard, main stage, and balcony bar.",
-      "source": "User-provided private events detail"
-    },
-    {
-      "id": "faq_private_event_types",
-      "question": "What kinds of private events fit the venue?",
-      "keywords": [
-        "what kinds of events",
-        "weddings",
-        "graduations",
-        "mardi gras balls",
-        "celebrations"
-      ],
-      "answer": "The private events information highlights weddings, graduations, Mardi Gras balls, and private celebrations.",
-      "source": "User-provided private events detail"
-    },
-    {
-      "id": "faq_venue_style",
-      "question": "What kind of music does the venue usually have?",
-      "keywords": [
-        "what kind of music does the venue have",
-        "venue style",
-        "music at bmc"
-      ],
-      "answer": "Public venue listings describe Balcony Music Club as showcasing a wide variety of local music, and NewOrleans.com associates the venue atmosphere with blues, jazz, and funk.",
-      "source": "WWOZ venue page and NewOrleans.com listing"
-    },
-    {
-      "id": "faq_upcoming_schedule_source",
-      "question": "Where does the current schedule come from?",
-      "keywords": [
-        "schedule source",
-        "where does the schedule come from",
-        "public calendar"
-      ],
-      "answer": "The current loaded schedule snapshot on this JazzyCat page comes from the public WWOZ BMC venue calendar snapshot dated April 8, 2026.",
-      "source": "WWOZ venue page"
-    },
-    {
-      "id": "faq_artist_genres_limit",
-      "question": "Can JazzyCat always tell me a band's genre?",
-      "keywords": [
-        "genre",
-        "what kind of music does a band play",
-        "band style",
-        "artist style"
-      ],
-      "answer": "Only when genre data has been loaded for that artist. This dedicated page is ready for artist genres, but not every artist has a verified genre profile loaded yet.",
-      "source": "Site behavior rule"
-    },
-    {
-      "id": "faq_artist_links_limit",
-      "question": "Can JazzyCat always give me artist links?",
-      "keywords": [
-        "artist links",
-        "band website",
-        "instagram",
-        "youtube",
-        "spotify"
-      ],
-      "answer": "Only when those links have been loaded into the artist data. If no artist links are loaded yet, JazzyCat should say that clearly rather than invent one.",
-      "source": "Site behavior rule"
-    },
-    {
-      "id": "faq_web_questions_limit",
-      "question": "Can JazzyCat answer wider internet questions?",
-      "keywords": [
-        "wider internet",
-        "web questions",
-        "outside the site",
-        "live internet"
-      ],
-      "answer": "Not from local JSON alone. Wider internet answers need a separate live search backend.",
-      "source": "Site behavior rule"
-    },
-    {
-      "id": "faq_official_website",
-      "question": "What is the official website?",
-      "keywords": [
-        "official website",
-        "website",
-        "site url",
-        "balconymusicclubnola"
-      ],
-      "answer": "The website listed on the public WWOZ venue page is https://balconymusicclubnola.com/.",
-      "source": "WWOZ venue page"
-    },
-    {
-      "id": "faq_city",
-      "question": "What city is the club in?",
-      "keywords": [
-        "what city",
-        "new orleans",
-        "city"
-      ],
-      "answer": "Balcony Music Club is in New Orleans, Louisiana.",
-      "source": "WWOZ venue page"
-    },
-    {
-      "question": "When is Thursday happy hour?",
-      "keywords": [
-        "happy hour",
-        "thursday happy hour",
-        "4:30",
-        "5:30",
-        "cocktail lounge music"
-      ],
-      "answer": "Thursday happy hour runs from 4:30 PM to 5:30 PM with nice cocktail lounge music.",
-      "source": "User-provided recurring programming detail"
-    },
-    {
-      "question": "What spaces are part of the venue?",
-      "keywords": [
-        "spaces",
-        "rooms",
-        "courtyard",
-        "main stage",
-        "balcony bar",
-        "venue areas"
-      ],
-      "answer": "The venue areas loaded here are the courtyard, main stage, and balcony bar.",
-      "source": "User-provided venue areas detail"
-    },
-    {
-      "question": "What is the house atmosphere line?",
-      "keywords": [
-        "house atmosphere",
-        "center of the universe",
-        "welcome to bmc",
-        "vibe"
-      ],
-      "answer": "The loaded house atmosphere line is: Welcome to BMC - The Center of the Universe.",
-      "source": "User-provided page copy"
-    },
-    {
-      "question": "Can JazzyCat answer tonight and day-by-day schedule questions?",
-      "keywords": [
-        "tonight",
-        "today",
-        "schedule by day",
-        "day by day",
-        "who is playing"
-      ],
-      "answer": "Yes, when the current public schedule snapshot is loaded into the page. JazzyCat can answer tonight, today, named day, and YYYY-MM-DD schedule questions from that local snapshot.",
-      "source": "Site behavior rule"
-    },
-    {
-      "question": "What can JazzyCat help me with on this page?",
-      "keywords": [
-        "what can jazzycat do",
-        "help me with",
-        "what do you know",
-        "what can you answer"
-      ],
-      "answer": "JazzyCat can help with venue basics, recurring specials, Paint and Sip, private events, loaded artist metadata, and the current public schedule snapshot on this page.",
-      "source": "Site behavior rule"
-    },
-    {
-      "question": "What is the private events email?",
-      "keywords": [
-        "private events email",
-        "event email",
-        "book email",
-        "marullomgmt"
-      ],
-      "answer": "For private events, email BMC@marullomgmt.com.",
-      "source": "User-provided club contact"
-    },
-    {
-      "question": "What is the private events phone number?",
-      "keywords": [
-        "private events phone",
-        "event phone",
-        "booking phone",
-        "428-5494"
-      ],
-      "answer": "For private events, call 504-428-5494.",
-      "source": "User-provided club contact"
-    },
-    {
-      "question": "What is the Paint and Sip phone number?",
-      "keywords": [
-        "paint and sip phone",
-        "paint phone",
-        "sip phone",
-        "281-8736"
-      ],
-      "answer": "Paint and Sip registration is handled at 504-281-8736.",
-      "source": "User-provided Paint and Sip registration contact"
     }
   ],
   "quick_questions": [
     "When did Balcony Music Club open?",
     "Is there a cover charge?",
-    "What was here before BMC?",
     "Is the bar haunted?",
     "What does the patio backbar serve?",
+    "What kind of drinks do you have?",
+    "Tell me about The BMC cocktail.",
+    "Tell me about the Jimi Hendrix Fizz.",
+    "Do you have THC seltzers?",
+    "Do you have craft beer?",
     "What is happening tonight?",
     "When is Thursday happy hour?",
     "When is Bloody Mary brunch?",
-    "How much is Bloody Mary brunch?",
     "How do I register for Paint and Sip?",
-    "How do I book a private event?",
-    "What spaces are part of the venue?",
-    "What kind of music does the venue usually have?",
-    "What is the official website?",
-    "Where is Balcony Music Club located?"
+    "How do I book a private event?"
   ],
   "routing": {
-    "local_topics": [
-      "venue basics",
-      "live music schedule basics",
-      "Bloody Mary brunch",
-      "Paint and Sip",
-      "private events",
-      "address",
-      "contact details",
-      "current loaded schedule snapshot"
-    ],
-    "needs_live_backend": [
-      "wider internet questions",
-      "weather",
-      "parking availability",
-      "real-time directions",
-      "real-time artist updates outside loaded data",
-      "web search",
-      "haunted history unless added to JSON"
-    ],
-    "unknown_fallback": "I do not have that loaded in this repo yet. Ask me about the current schedule snapshot, Thursday happy hour, Sunday Bloody Mary brunch, Paint and Sip, private events, venue basics, or a loaded artist."
+    "unknown_fallback": "I do not have that loaded in this repo yet. Ask me about the club history, no-cover policy, haunted-tour angle, patio backbar paninis, house cocktails, THC seltzers, craft beer, the current schedule snapshot, Thursday happy hour, Sunday Bloody Mary brunch, Paint and Sip, or private events."
   },
   "ui": {
     "page_title": "Ask JazzyCat",
@@ -596,23 +399,12 @@
     "status_label": "Local knowledge loaded",
     "input_placeholder": "Ask JazzyCat about BMC\u2026",
     "send_label": "Ask JazzyCat",
-    "welcome_prompt": "Ask about tonight, brunch, happy hour, private events, Paint and Sip, or a loaded artist.",
-    "marquee_text": "ASK JAZZYCAT \u2022 BALCONY MUSIC CLUB \u2022 WEDNESDAY\u2013SUNDAY LIVE MUSIC \u2022 THURSDAY HAPPY HOUR \u2022 SUNDAY BLOODY MARY BRUNCH \u2022 PRIVATE EVENTS \u2022"
+    "welcome_prompt": "Ask about cocktails, tonight, brunch, happy hour, private events, Paint and Sip, or a loaded artist.",
+    "marquee_text": "NO COVER \u2022 NO CHARGE \u2022 SPECIALTY CRAFT COCKTAILS \u2022 THC SELTZERS \u2022 CRAFT BEER \u2022 PATIO BACKBAR PANINIS \u2022 LIVE MUSIC WEDNESDAY\u2013SUNDAY \u2022"
   },
   "sources": [
     "Local JazzyCat venue knowledge JSON",
     "Current public schedule snapshot loaded into this repo",
     "Local artist metadata JSON"
-  ],
-  "history": {
-    "founded": 2011,
-    "cover_policy": "No cover, no charge.",
-    "previous_identity": "Before Balcony Music Club, the venue carried an earlier chapter as the Matador.",
-    "haunted_tours": "The bar is considered part of the city's haunted bar lore and is available to tour on haunted history routes.",
-    "source": "User-provided venue history detail"
-  },
-  "food": {
-    "patio_backbar": "The patio backbar serves fresh-made-to-order chicken paninis.",
-    "source": "User-provided venue food detail"
-  }
+  ]
 }
