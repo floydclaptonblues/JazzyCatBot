@@ -1,5 +1,5 @@
 {
-  "version": "2.1.0",
+  "version": "2.2.0",
   "last_updated": "2026-04-09",
   "assistant": {
     "name": "JazzyCat",
@@ -14,8 +14,8 @@
     ],
     "identity_lines": [
       "Hey, I'm JazzyCat \u2014 Balcony Music Club's pixel-house guide.",
-      "I can help with venue basics, recurring specials, the current public schedule snapshot, loaded artist notes, and the best contact route for private events or Paint and Sip.",
-      "I only answer from the local JSON loaded into this page, so if something has not been entered yet, I say so instead of making it up."
+      "Ask me about the club's founding in 2011, the old Matador chapter, the no-cover spirit, haunted-history-tour lore, the patio backbar chicken paninis, tonight's lineup, or how to book the room.",
+      "I answer from the facts loaded into this page and say so clearly when something has not been entered yet."
     ],
     "rules": [
       "Use only facts loaded from the JSON files on this page unless a separate live search route is connected.",
@@ -33,7 +33,7 @@
     "state": "Louisiana",
     "address": "1331 Decatur St., New Orleans, LA 70116",
     "website": "https://balconymusicclubnola.com/",
-    "summary": "Balcony Music Club is a French Quarter venue in New Orleans that showcases a wide variety of local music and recurring event programming.",
+    "summary": "Balcony Music Club is a French Quarter live music room in New Orleans that opened in 2011, carries earlier history as the Matador, and keeps a no-cover, no-charge spirit.",
     "venue_areas": [
       "courtyard",
       "main stage",
@@ -43,8 +43,8 @@
       "WWOZ lists BMC at 1331 Decatur St. in the French Quarter and describes it as a venue showcasing a wide variety of local music.",
       "NewOrleans.com describes BMC as a popular music venue showcasing up-and-coming musical talent, with blues, jazz, or funk commonly associated with the venue's atmosphere."
     ],
-    "core_summary": "Welcome to BMC \u2014 The Center of the Universe.",
-    "house_atmosphere": "Welcome to BMC - The Center of the Universe.",
+    "core_summary": "Opened in 2011. No cover, no charge. Older locals still remember its Matador chapter, and the room has enough ghost-story energy to show up on haunted-history tours.",
+    "house_atmosphere": "No cover, no charge \u2022 founded in 2011 \u2022 haunted-history-tour lore \u2022 patio backbar chicken paninis",
     "vibe_notes": [
       "French Quarter live-music energy",
       "Mardi Gras color and marquee flair",
@@ -65,8 +65,9 @@
         "description": "The balcony bar is one of the highlighted bookable venue areas included in the current JazzyCat knowledge file."
       }
     ],
-    "badge_line": "French Quarter \u2022 Local Music \u2022 Marquee Glow",
-    "poster_caption": "A pixel-night BMC dream in Mardi Gras colors."
+    "badge_line": "Founded 2011 \u2022 No Cover \u2022 Haunted Quarter Flavor",
+    "poster_caption": "A haunted French Quarter room with old stories, no cover, and a patio backbar slinging fresh-made-to-order chicken paninis.",
+    "sidebar_summary": "Balcony Music Club opened in 2011, was previously known as the Matador, keeps a no-cover/no-charge spirit, appears in haunted-history-tour conversation, and has a patio backbar known for fresh-made-to-order chicken paninis."
   },
   "contacts": {
     "venue_phone_public": {
@@ -155,6 +156,67 @@
     }
   },
   "faq": [
+    {
+      "id": "faq_founded",
+      "question": "When did Balcony Music Club open?",
+      "keywords": [
+        "when did it open",
+        "founded",
+        "2011",
+        "when was balcony music club founded"
+      ],
+      "answer": "Balcony Music Club opened in 2011.",
+      "source": "User-provided venue history detail"
+    },
+    {
+      "id": "faq_cover",
+      "question": "Is there a cover charge?",
+      "keywords": [
+        "cover",
+        "cover charge",
+        "no cover",
+        "no charge"
+      ],
+      "answer": "No cover, no charge.",
+      "source": "User-provided venue policy detail"
+    },
+    {
+      "id": "faq_matador",
+      "question": "What was here before Balcony Music Club?",
+      "keywords": [
+        "matador",
+        "previous history",
+        "what was here before",
+        "before balcony music club"
+      ],
+      "answer": "Before Balcony Music Club, the venue had an earlier chapter as the Matador.",
+      "source": "User-provided venue history detail"
+    },
+    {
+      "id": "faq_haunted",
+      "question": "Is Balcony Music Club haunted?",
+      "keywords": [
+        "haunted",
+        "ghost",
+        "haunted tour",
+        "haunted history"
+      ],
+      "answer": "Balcony Music Club is part of local haunted-bar lore and is available to tour on haunted history routes in the city.",
+      "source": "User-provided haunted-tour detail"
+    },
+    {
+      "id": "faq_panini",
+      "question": "What food does the patio backbar serve?",
+      "keywords": [
+        "panini",
+        "chicken panini",
+        "food",
+        "patio backbar",
+        "backbar food"
+      ],
+      "answer": "The patio backbar serves fresh-made-to-order chicken paninis.",
+      "source": "User-provided venue food detail"
+    },
     {
       "id": "faq_what_is_bmc",
       "question": "What is Balcony Music Club?",
@@ -490,6 +552,11 @@
     }
   ],
   "quick_questions": [
+    "When did Balcony Music Club open?",
+    "Is there a cover charge?",
+    "What was here before BMC?",
+    "Is the bar haunted?",
+    "What does the patio backbar serve?",
     "What is happening tonight?",
     "When is Thursday happy hour?",
     "When is Bloody Mary brunch?",
@@ -536,5 +603,16 @@
     "Local JazzyCat venue knowledge JSON",
     "Current public schedule snapshot loaded into this repo",
     "Local artist metadata JSON"
-  ]
+  ],
+  "history": {
+    "founded": 2011,
+    "cover_policy": "No cover, no charge.",
+    "previous_identity": "Before Balcony Music Club, the venue carried an earlier chapter as the Matador.",
+    "haunted_tours": "The bar is considered part of the city's haunted bar lore and is available to tour on haunted history routes.",
+    "source": "User-provided venue history detail"
+  },
+  "food": {
+    "patio_backbar": "The patio backbar serves fresh-made-to-order chicken paninis.",
+    "source": "User-provided venue food detail"
+  }
 }
