@@ -1,8 +1,8 @@
 {
   "version": "0.1.0",
-  "last_updated": "2026-04-09",
+  "last_updated": "2026-05-02",
   "purpose": "Artist metadata for JazzyCat and the separate schedule manager.",
-  "source_note": "Artists were pulled from the current BMC public schedule snapshot. Verified genres have explicit sources; the rest are intentionally left for review rather than guessed.",
+  "source_note": "Original artist metadata preserved; May 2026 schedule artists and aliases merged from Ryan-provided BMC schedule. Unknown genre/link fields are intentionally left for review rather than guessed.",
   "fields": {
     "artist_id": "Stable machine-friendly identifier.",
     "artist_name": "Display name as shown publicly.",
@@ -87,7 +87,10 @@
     {
       "artist_id": "big_mike_and_the_r_and_b_kings",
       "artist_name": "Big Mike & The R&B Kings",
-      "aliases": [],
+      "aliases": [
+        "Big Mike & R&B Kings",
+        "Big Mike and the R&B Kings"
+      ],
       "genres": [
         "Blues",
         "Funk",
@@ -178,7 +181,9 @@
     {
       "artist_id": "deej_and_mother_ruckus",
       "artist_name": "Deej & Mother Ruckus",
-      "aliases": [],
+      "aliases": [
+        "Deej Flava & Mother Ruckus"
+      ],
       "genres": [],
       "genre_primary": null,
       "style_summary": null,
@@ -238,7 +243,10 @@
     {
       "artist_id": "j_a_m_brass_band",
       "artist_name": "J.A.M Brass Band",
-      "aliases": [],
+      "aliases": [
+        "JAM Brass Band",
+        "J.A.M. Brass Band"
+      ],
       "genres": [
         "Brass Band",
         "Funk",
@@ -270,7 +278,9 @@
     {
       "artist_id": "john_lisi_and_delta_funk",
       "artist_name": "John Lisi & Delta Funk",
-      "aliases": [],
+      "aliases": [
+        "John Lisi and Delta Funk"
+      ],
       "genres": [],
       "genre_primary": null,
       "style_summary": null,
@@ -370,7 +380,10 @@
     {
       "artist_id": "maurice_cade_and_ess",
       "artist_name": "Maurice Cade & ESS",
-      "aliases": [],
+      "aliases": [
+        "Maurice Cade and ESS",
+        "Maurice Cade"
+      ],
       "genres": [],
       "genre_primary": null,
       "style_summary": null,
@@ -459,7 +472,12 @@
     {
       "artist_id": "r_and_r_smokin_foundation",
       "artist_name": "R&R Smokin' Foundation",
-      "aliases": [],
+      "aliases": [
+        "Smokin Foundation",
+        "SMOKIN FOUNDATION",
+        "R&R Smokin Foundation",
+        "Smokin Foundation Band"
+      ],
       "genres": [],
       "genre_primary": null,
       "style_summary": null,
@@ -554,7 +572,12 @@
     {
       "artist_id": "sierra_green",
       "artist_name": "Sierra Green",
-      "aliases": [],
+      "aliases": [
+        "Sierra",
+        "Sierra & Green Notes",
+        "Sierra Green and the Green Notes",
+        "Sierra Green & The Green Notes"
+      ],
       "genres": [
         "R&B",
         "Blues",
@@ -604,7 +627,9 @@
     {
       "artist_id": "under_the_covers",
       "artist_name": "Under the Covers",
-      "aliases": [],
+      "aliases": [
+        "Under The Covers"
+      ],
       "genres": [
         "Cover"
       ],
@@ -656,6 +681,170 @@
         }
       ],
       "notes": "Genres sourced from the listed public/official source(s)."
+    },
+    {
+      "artist_id": "josh_benitez_band",
+      "artist_name": "Josh Benitez Band",
+      "aliases": [],
+      "genres": [],
+      "genre_primary": null,
+      "style_summary": null,
+      "verification_status": "needs_review",
+      "genre_confidence": "unknown",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification."
+    },
+    {
+      "artist_id": "caesar_bros",
+      "artist_name": "Caesar Bros",
+      "aliases": [],
+      "genres": [],
+      "genre_primary": null,
+      "style_summary": null,
+      "verification_status": "needs_review",
+      "genre_confidence": "unknown",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification."
+    },
+    {
+      "artist_id": "sugar_and_the_daddies",
+      "artist_name": "Sugar & The Daddies",
+      "aliases": [],
+      "genres": [],
+      "genre_primary": null,
+      "style_summary": null,
+      "verification_status": "needs_review",
+      "genre_confidence": "unknown",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification."
+    },
+    {
+      "artist_id": "special_guest",
+      "artist_name": "Special Guest",
+      "aliases": [],
+      "genres": [],
+      "genre_primary": null,
+      "style_summary": "Placeholder schedule listing for a performer not yet announced.",
+      "verification_status": "schedule_placeholder",
+      "genre_confidence": "not_applicable",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "This is a schedule placeholder, not a verified artist profile."
+    },
+    {
+      "artist_id": "kim_inda_wind_band",
+      "artist_name": "Kim Inda Wind Band",
+      "aliases": [
+        "Kim",
+        "KIM",
+        "Kim Inda Wind"
+      ],
+      "genres": [],
+      "genre_primary": null,
+      "style_summary": null,
+      "verification_status": "needs_review",
+      "genre_confidence": "unknown",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification."
+    },
+    {
+      "artist_id": "no_mads",
+      "artist_name": "No-Mads",
+      "aliases": [],
+      "genres": [],
+      "genre_primary": null,
+      "style_summary": null,
+      "verification_status": "needs_review",
+      "genre_confidence": "unknown",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification."
+    },
+    {
+      "artist_id": "covertones",
+      "artist_name": "Covertones",
+      "aliases": [],
+      "genres": [],
+      "genre_primary": null,
+      "style_summary": null,
+      "verification_status": "needs_review",
+      "genre_confidence": "unknown",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification."
+    },
+    {
+      "artist_id": "maurice_cade",
+      "artist_name": "Maurice Cade",
+      "aliases": [],
+      "genres": [],
+      "genre_primary": null,
+      "style_summary": null,
+      "verification_status": "needs_review",
+      "genre_confidence": "unknown",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification."
     }
   ]
 }
